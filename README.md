@@ -1,5 +1,6 @@
 # wm_nlu
-ROS wrapper for rasa nlu. Mainly used for SPR robocup@home challenge.
+ROS wrapper for rasa nlu. Mainly used for SPR robocup@home challenge.  
+*Currently not a ROS package.*
 
 ## Installation
 * pip install rasa_nlu
