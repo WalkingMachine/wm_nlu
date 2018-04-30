@@ -1,0 +1,522 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "Where is located the armchair ?",
+        "intent": "arena_where_located",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "armchair",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "In which room is the cutlery drawer?",
+        "intent": "arena_where_located",
+        "entities": [
+          {
+            "start": 21,
+            "end": 35,
+            "value": "cutlery drawer",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many doors has the bathroom?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 23,
+            "end": 31,
+            "value": "bathroom",
+            "entity": "room"
+          },
+          {
+            "start": 9,
+            "end": 14,
+            "value": "doors",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many apple are in the kitchen?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "object"
+          },
+          {
+            "start": 26,
+            "end": 33,
+            "value": "kitchen",
+            "entity": "room"
+          }
+        ]
+      },
+      {
+        "text": "Where is the table?",
+        "intent": "arena_where_located",
+        "entities": [
+          {
+            "start": 13,
+            "end": 18,
+            "value": "table",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many people are in the crowd ?",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "people",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "How many girls in the crowd are sitting ?",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "girls",
+            "entity": "people_type"
+          },
+          {
+            "start": 32,
+            "end": 39,
+            "value": "sitting",
+            "entity": "gesture"
+          }
+        ]
+      },
+      {
+        "text": "Tell me the number of men in the crowd",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 22,
+            "end": 25,
+            "value": "men",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Was the standing person male or female ?",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 8,
+            "end": 16,
+            "value": "standing",
+            "entity": "gesture"
+          },
+          {
+            "start": 24,
+            "end": 28,
+            "value": "male",
+            "entity": "people_type"
+          },
+          {
+            "start": 32,
+            "end": 38,
+            "value": "female",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Tell me if the lying person was a woman ?",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 34,
+            "end": 39,
+            "value": "woman",
+            "entity": "people_type"
+          },
+          {
+            "start": 15,
+            "end": 20,
+            "value": "lying",
+            "entity": "gesture"
+          }
+        ]
+      },
+      {
+        "text": "Tell me how many people were wearing blue",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 37,
+            "end": 41,
+            "value": "blue",
+            "entity": "color"
+          },
+          {
+            "start": 17,
+            "end": 23,
+            "value": "people",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "How many persons wear red ?",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 22,
+            "end": 25,
+            "value": "red",
+            "entity": "color"
+          },
+          {
+            "start": 9,
+            "end": 16,
+            "value": "persons",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Where can I find an apple ?",
+        "intent": "arena_where_located",
+        "entities": [
+          {
+            "start": 20,
+            "end": 25,
+            "value": "apple",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many fruits there are ?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "fruits",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "What's the color of the shampoo ?",
+        "intent": "arena_color_object",
+        "entities": [
+          {
+            "start": 24,
+            "end": 31,
+            "value": "shampoo",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Which color was the oreo ?",
+        "intent": "arena_color_object",
+        "entities": [
+          {
+            "start": 20,
+            "end": 24,
+            "value": "oreo",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many drinks are in the living room ?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "drinks",
+            "entity": "object"
+          },
+          {
+            "start": 27,
+            "end": 38,
+            "value": "living room",
+            "entity": "room"
+          }
+        ]
+      },
+      {
+        "text": "Count the orange in the bedroom",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 10,
+            "end": 16,
+            "value": "orange",
+            "entity": "object"
+          },
+          {
+            "start": 24,
+            "end": 31,
+            "value": "bedroom",
+            "entity": "room"
+          }
+        ]
+      },
+      {
+        "text": "What objects are stored in the coffee table ?",
+        "intent": "arena_which_object",
+        "entities": [
+          {
+            "start": 31,
+            "end": 43,
+            "value": "coffee table",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Where can I find a microwave ?",
+        "intent": "arena_where_located",
+        "entities": [
+          {
+            "start": 19,
+            "end": 28,
+            "value": "microwave",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "What can I find in the cabinet ?",
+        "intent": "arena_which_object",
+        "entities": [
+          {
+            "start": 23,
+            "end": 30,
+            "value": "cabinet",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many juice are in the freezer ?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "juice",
+            "entity": "object"
+          },
+          {
+            "start": 26,
+            "end": 33,
+            "value": "freezer",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many glass are on the table ?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "glass",
+            "entity": "object"
+          },
+          {
+            "start": 26,
+            "end": 31,
+            "value": "table",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "To which category belong the sofa ?",
+        "intent": "object_category",
+        "entities": [
+          {
+            "start": 29,
+            "end": 33,
+            "value": "sofa",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "What's the category of the peach ?",
+        "intent": "object_category",
+        "entities": [
+          {
+            "start": 27,
+            "end": 32,
+            "value": "peach",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Do the noodles and banana belong to the same category ?",
+        "intent": "object_category",
+        "entities": [
+          {
+            "start": 19,
+            "end": 25,
+            "value": "banana",
+            "entity": "object"
+          },
+          {
+            "start": 7,
+            "end": 14,
+            "value": "noodles",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Are the tea and beer from the same category ?",
+        "intent": "object_category",
+        "entities": [
+          {
+            "start": 8,
+            "end": 11,
+            "value": "tea",
+            "entity": "object"
+          },
+          {
+            "start": 16,
+            "end": 20,
+            "value": "beer",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Which is the milk category ?",
+        "intent": "object_category",
+        "entities": [
+          {
+            "start": 13,
+            "end": 17,
+            "value": "milk",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Between the water and spoon, which one is heavier ?",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 12,
+            "end": 17,
+            "value": "water",
+            "entity": "object"
+          },
+          {
+            "start": 22,
+            "end": 27,
+            "value": "spoon",
+            "entity": "object"
+          },
+          {
+            "start": 42,
+            "end": 49,
+            "value": "heavier",
+            "entity": "adjective"
+          }
+        ]
+      },
+      {
+        "text": "Which is the biggest fruits ?",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 21,
+            "end": 27,
+            "value": "fruits",
+            "entity": "object"
+          },
+          {
+            "start": 13,
+            "end": 20,
+            "value": "biggest",
+            "entity": "adjective"
+          }
+        ]
+      },
+      {
+        "text": "Between the apple and shampoo, which one is bigger ?",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 22,
+            "end": 29,
+            "value": "shampoo",
+            "entity": "object"
+          },
+          {
+            "start": 12,
+            "end": 17,
+            "value": "apple",
+            "entity": "object"
+          },
+          {
+            "start": 44,
+            "end": 50,
+            "value": "bigger",
+            "entity": "adjective"
+          }
+        ]
+      },
+      {
+        "text": "What objects are stored in the bedside?",
+        "intent": "arena_which_object",
+        "entities": [
+          {
+            "start": 31,
+            "end": 38,
+            "value": "bedside",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Tell me how many people were wearing white",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 37,
+            "end": 42,
+            "value": "white",
+            "entity": "color"
+          },
+          {
+            "start": 17,
+            "end": 23,
+            "value": "people",
+            "entity": "people_type"
+          }
+        ]
+      }
+    ]
+  }
+}
