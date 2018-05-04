@@ -516,6 +516,24 @@
             "entity": "people_type"
           }
         ]
+      },
+      {
+        "text": "How many drinks in the dining room ?",
+        "intent": "arena_count_object",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "drinks",
+            "entity": "object"
+          },
+          {
+            "start": 23,
+            "end": 34,
+            "value": "dining room",
+            "entity": "room"
+          }
+        ]
       }
     ]
   }

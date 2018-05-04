@@ -102,12 +102,17 @@ def arena_count_object(f_arg=None):
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
-    # requete wonderland => get list of object with param(room || container)
+
     if len(f_arg) == 1:
         if f_arg[0].get('entity') == "object":
             arg = {"entityClass": f_arg[0].get('value')}
-            sentence = "There's " + str(len(wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
-            return sentence
+            if len(wonderland_get_entity(arg)) != 0:
+                sentence = "There's " + str(len(wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
+                return sentence
+            else:
+                arg = {"entityCategory": f_arg[0].get('value')}
+                sentence = "There's " + str(len(wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
+                return sentence
 
     elif len(f_arg) == 2:
         if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
@@ -116,7 +121,45 @@ def arena_count_object(f_arg=None):
             # requete wonderland => trouver id du container
             request_arg = {"entityClass": f_arg[1].get('value')}
             answer = wonderland_get_first_entity(request_arg)
-            print(answer.get('entityId'))
+            container_id = answer.get('entityId')
+
+            count = 0
+            id = -1
+
+            # recursive search for container
+            objects = wonderland_get_entity(arg)
+            for object in objects:
+                id = object.get('entityContainer')
+                if id == container_id:
+                    count += 1
+                else:
+                    while id != container_id and id != None:
+                        id = object.get('entityContainer')
+                        if id == container_id:
+                            count += 1
+                        object = wonderland_get_first_entity({"entityId": id})
+
+            if count == 0:
+                arg = {"entityCategory": f_arg[0].get('value')}
+                count = 0
+                id = -1
+
+                # recursive search for container
+                objects = wonderland_get_entity(arg)
+                # recursive search for container
+                objects = wonderland_get_entity(arg)
+                for object in objects:
+                    id = object.get('entityContainer')
+                    if id == container_id:
+                        count += 1
+                    else:
+                        while id != container_id and id != None:
+                            id = object.get('entityContainer')
+                            if id == container_id:
+                                count += 1
+                            object = wonderland_get_first_entity({"entityId": id})
+
+            return "There's " + str(count) + " " + f_arg[0].get('value') + " in the " + f_arg[1].get('value')
 
 
 
@@ -266,7 +309,7 @@ def test_rasa(question):
 
 if __name__ == "__main__":
     print("start wm_nlu")
-    test_rasa("where is the water ?")
+    test_rasa("How many drinks in the fridge ?")
 
     ###############################
     # QUESTIONS EXAMPLES
@@ -278,4 +321,7 @@ if __name__ == "__main__":
     # To which category belong the melon?
     # Where is the shampoo ?
     # Where is the water ?
-    #
+    # How many drinks ?
+    # How many apple ?
+    # How many person ?
+    # How many drinks in the kitchen ?
