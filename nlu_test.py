@@ -11,6 +11,28 @@ from rasa_nlu import config
 from rasa_nlu.model import Metadata, Interpreter
 import json
 
+def wonderland_get_first_entity( args = None ):
+
+    url = "http://localhost:8000/api/entity/"
+
+    headers = {
+        'api-key': "43d5d4a6b88c4c2ea303188fcbc3385f79d1e961",
+        'cache-control': "no-cache",
+        'postman-token': "c0ef09c6-ad86-b7f4-52be-fe3c0f6d1238"
+    }
+    response = None
+
+    if args != None:
+        response = requests.get(url, headers=headers, params=args)
+    else:
+        response = requests.get(url, headers)
+
+    parsedJson = json.loads(response.text)
+
+    if isinstance(parsedJson, list) and len(parsedJson) > 0:
+        return parsedJson[0]
+
+    return parsedJson
 
 def wonderland_get_entity( args = None ):
 
@@ -22,15 +44,15 @@ def wonderland_get_entity( args = None ):
         'postman-token': "c0ef09c6-ad86-b7f4-52be-fe3c0f6d1238"
     }
     response = None
+
     if args != None:
-        response = requests.get(url, headers, args)
+        response = requests.get(url, headers=headers, params=args)
     else:
         response = requests.get(url, headers)
 
     parsedJson = json.loads(response.text)
-    if len(parsedJson) > 0:
-        print(parsedJson[0])
 
+    return parsedJson
 
 # ARGS
 # -object                        (where is the shampoo ?)
@@ -43,16 +65,36 @@ def arena_where_located(f_arg=None):
         if(arg.get('entity')=='object'):
             object+=arg.get('value')
             object+=" "
-    print(object)
 
-    ## this is only a test response
-    print("REPSONSE :", "you can find the", object, "in the kitchen")
-    # TODO : requete wonderland => get room from object
-    wonderland_get_entity()
+    object = object.strip()
+    print("object :", object)
+    # Try with entityClass first, if nothing, try with entityName
+    arg = {"entityCategory": object}
+    answer = wonderland_get_first_entity(arg)
+
+    if len(answer) == 0:
+        arg = {"entityClass": object}
+        answer = wonderland_get_first_entity(arg)
+
+    container = ""
+
+    if len(answer) > 0:
+        while(answer.get('entityCategory') != "Rooms"):
+            arg = {"entityId": answer.get('entityContainer')}
+            answer = wonderland_get_first_entity(arg)
+            print("Container : ", answer.get('entityClass'))
+            container += " in the " + answer.get('entityClass')
+
+    if container != "":
+        toSay = "The " + object + " is" + container
+    else:
+        toSay = "I'm sorry, I don't know where the " + object + " is"
+
+    return toSay
 
 # ARGS
 # -object                        (how many chairs ?)
-# -object && room                (how many chairs in the kitchen ?)
+# -object && object(room)        (how many chairs in the kitchen ?)
 # -object && object(placement)   (how many apple in the fridge ?)
 # RETURN : count
 def arena_count_object(f_arg=None):
@@ -60,7 +102,24 @@ def arena_count_object(f_arg=None):
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
-    # TODO : requete wonderland => get list of object with param(room || container)
+    # requete wonderland => get list of object with param(room || container)
+    if len(f_arg) == 1:
+        if f_arg[0].get('entity') == "object":
+            arg = {"entityClass": f_arg[0].get('value')}
+            sentence = "There's " + str(len(wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
+            return sentence
+
+    elif len(f_arg) == 2:
+        if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
+            arg = {"entityClass": f_arg[0].get('value')}
+
+            # requete wonderland => trouver id du container
+            request_arg = {"entityClass": f_arg[1].get('value')}
+            answer = wonderland_get_first_entity(request_arg)
+            print(answer.get('entityId'))
+
+
+
 
 
 # ARGS
@@ -106,6 +165,28 @@ def arena_which_object(f_arg=None):
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
+    if len(f_arg) > 0:
+        #print(f_arg[0])
+
+        # requete wonderland => trouver id du container
+        request_arg = {"entityClass": f_arg[0].get('value')}
+        answer = wonderland_get_first_entity(request_arg)
+        #print(answer.get('entityId'))
+
+        objects = ""
+
+        answer2 = wonderland_get_entity()
+        for object in answer2:
+            if object.get("entityContainer") == answer.get('entityId'):
+                objects += ", " + object.get("entityClass")
+
+        if objects == "":
+            return ("I can't find any objects in the " + f_arg[0].get('value'))
+        else:
+            return ("In the " + f_arg[0].get('value') + ", theres :" + objects)
+
+    return "I can't find any objects"
+
 # ARGS
 # -object                        (To which category belong the melon?)
 # -object && object              (Do the bowl and chocolate bar belong to the same category?)
@@ -114,6 +195,23 @@ def object_category(f_arg=None):
     print('entity : ', 'object_category')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
+
+    if len(f_arg) == 1:
+        if f_arg[0].get('entity') == "object":
+            answer = wonderland_get_first_entity({"entityClass": f_arg[0].get('value')})
+            return "The " + f_arg[0].get('value') + " belong to the " + answer.get('entityCategory')
+    if len(f_arg) == 2:
+        if f_arg[0].get('entity') == "object" and f_arg[1].get('entity') == "object":
+            answer1 = wonderland_get_first_entity({"entityClass": f_arg[0].get('value')})
+            answer2 = wonderland_get_first_entity({"entityClass": f_arg[1].get('value')})
+            if len(answer1) == 0 or len(answer2) == 0:
+                return "I'm sorry, I don't know these objects"
+            if answer1.get('entityCategory') == answer2.get('entityCategory'):
+                return "Yes, the " + f_arg[0].get('value') + " and the " + f_arg[1].get('value') + " belongs to the same category"
+            else:
+                return "No, the " + f_arg[0].get('value') + " and the " + f_arg[1].get(
+                    'value') + " does not belongs to the same category"
+
 
 # ARGS
 # -object && object && adjective (Between the mints and apple, which one is bigger?)
@@ -156,10 +254,28 @@ def test_rasa(question):
 
     # return the JSON as a dict
     print("Calling rasa_nlu...")
+    print('*' * 40)
     response = interpreter.parse(question)
     entities = response.get('entities')
-    intent_functions[response.get('intent').get('name')](entities)
+    sentence = intent_functions[response.get('intent').get('name')](entities)
+
+    # printing question/answer
+    print('*' * 40)
+    print('Q :', question)
+    print('A :', sentence)
 
 if __name__ == "__main__":
-    print("start test_rasa")
-    test_rasa("Where can I find a drinks?")
+    print("start wm_nlu")
+    test_rasa("where is the water ?")
+
+    ###############################
+    # QUESTIONS EXAMPLES
+    ###############################
+    #
+    # What objects are stored in the fridge ?
+    # Do the banana and apple belong to the same category?
+    # Do the coke and apple belong to the same category?
+    # To which category belong the melon?
+    # Where is the shampoo ?
+    # Where is the water ?
+    #
