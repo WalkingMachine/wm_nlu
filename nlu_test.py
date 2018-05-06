@@ -5,11 +5,44 @@ import sys
 import os
 
 from rasa_nlu.training_data import load_data
-from rasa_nlu.config import RasaNLUModelConfig
 from rasa_nlu.model import Trainer
 from rasa_nlu import config
-from rasa_nlu.model import Metadata, Interpreter
+from rasa_nlu.model import Interpreter
 import json
+import xml.etree.ElementTree as ET
+
+# define state WaitingQuestion
+class PredefinedQuestion():
+    def __init__(self):
+        self.RecoString = []
+        self.ANSWERS = []
+        self.QUESTIONS = dict()
+        self.WEIGHT = dict()
+
+    def callback(self, question):
+        self.RecoString = question.split()
+
+        for word in self.RecoString:
+            for question in self.QUESTIONS:
+                if question.lower().find(word.lower()) != -1:
+                    self.WEIGHT[question] += 1
+
+    def loadQuestions(self, filename):
+        print("Loading predefined question from", filename)
+        tree = ET.parse(filename)
+        root = tree.getroot()
+
+        for childs in root:
+            try:
+                self.QUESTIONS[childs[0].text] = childs[1].text
+                self.WEIGHT[childs[0].text] = 0
+
+            except:
+                print("error reading the file")
+        print(self.QUESTIONS.__len__(), "predefined questions loaded")
+
+
+
 
 def wonderland_get_first_entity( args = None ):
 
@@ -58,7 +91,7 @@ def wonderland_get_entity( args = None ):
 # -object                        (where is the shampoo ?)
 # RETURN : room
 def arena_where_located(f_arg=None):
-    print('entity : ', 'arena_where_located')
+    print('entity :', 'arena_where_located')
 
     object=""
     for arg in f_arg:
@@ -98,7 +131,7 @@ def arena_where_located(f_arg=None):
 # -object && object(placement)   (how many apple in the fridge ?)
 # RETURN : count
 def arena_count_object(f_arg=None):
-    print('entity : ', 'arena_count_object')
+    print('entity :', 'arena_count_object')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
@@ -167,22 +200,59 @@ def arena_count_object(f_arg=None):
 
 # ARGS
 # -object                        (how many girls ?)
-# -object && gesture             (how many man standing ?)
+# -object && gesture             (how many man standing ?)      #TODO
 # -object && color               (how many boys wearing blue ?)
 # RETURN : count
 def crowd_count(f_arg=None):
-    print('entity : ','crowd_count')
+    print('entity: ','crowd_count')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
-    # TODO : requete wonderland => get list of persons with param(gesture || color)
+    requestArg = {"entityClass":"person"}
+    answer = wonderland_get_entity(requestArg)
+
+    personType = {
+        "girl":"girl",
+        "girls":"girl",
+        "women":"girl",
+        "woman":"girl",
+        "men":"boy",
+        "boys":"boy",
+        "boy":"boy",
+        "man":"boy",
+        "people":""
+    }
+
+    if len(f_arg) == 1:
+        count = 0
+        for person in answer:
+            if f_arg[0].get('value') == "people":
+                count += 1
+            elif person.get('entityName') == personType.get(f_arg[0].get('value')):
+                count = count + 1
+        return "There's " + str(count) + " " + f_arg[0].get('value')
+
+    if len(f_arg) == 2:
+        if f_arg[1].get('entity') == "color":
+            count = 0
+            for person in answer:
+                if f_arg[0].get('value') == "people" and person.get('entityColor') == f_arg[1].get('value'):
+                    count += 1
+                if person.get('entityName') == personType.get(f_arg[0].get('value')) \
+                        and person.get('entityColor') == f_arg[1].get('value'):
+                    count = count + 1
+            return "There's " + str(count) + " " + f_arg[0].get('value') + " wearing " + f_arg[1].get('value')
+
+        if f_arg[1].get('entity') == "gesture":
+            count = 0
+            return "I can't answer this question yet"
 
 # ARGS
-# -gesture && person_type        (tell me if the standing person was a male)
-# -gesture && person_type (x2)   (is the person pointing a girl or a boy ?)
+# -gesture && person_type        (tell me if the standing person was a male) #TODO
+# -gesture && person_type (x2)   (is the person pointing a girl or a boy ?) #TODO
 # RETURN : yes/no || person_type
 def crowd_person_gesture(f_arg=None):
-    print('entity : ', 'crowd_person_gesture')
+    print('entity: ', 'crowd_person_gesture')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
@@ -193,18 +263,22 @@ def crowd_person_gesture(f_arg=None):
 # -object                        (What's the colour of the chocolate egg?)
 # RETURN : color
 def arena_color_object(f_arg=None):
-    print('entity : ', 'arena_color_object')
+    print('entity: ', 'arena_color_object')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
-    # TODO : requete wonderland => get list of persons with param(gesture || color)
+    if len(f_arg) > 0:
+        if f_arg[0].get('entity') == "object":
+            arg = {"entityClass": f_arg[0].get('value')}
+            object = wonderland_get_first_entity(arg)
+            return "The " + f_arg[0].get('value') + " is " + object.get('entityColor')
 
 
 # ARGS
 # -object                        (What objects are stored in the living table?)
 # RETURN : object(s)
 def arena_which_object(f_arg=None):
-    print('entity : ', 'arena_which_object')
+    print('entity: ', 'arena_which_object')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
@@ -235,7 +309,7 @@ def arena_which_object(f_arg=None):
 # -object && object              (Do the bowl and chocolate bar belong to the same category?)
 # RETURN : category || yes/no
 def object_category(f_arg=None):
-    print('entity : ', 'object_category')
+    print('entity: ', 'object_category')
     for arg in f_arg:
         print(arg.get('entity'), ":", arg.get('value'))
 
@@ -257,12 +331,168 @@ def object_category(f_arg=None):
 
 
 # ARGS
+# -adjective                     (Which is the biggest object?)
 # -object && object && adjective (Between the mints and apple, which one is bigger?)
 # -adjective && object(category) (Which is the lightest snacks?)
 def object_adjective(f_arg=None):
-    print('entity : ', 'object_adjective')
-    for arg in f_arg:
-        print(arg.get('entity'), ":", arg.get('value'))
+    print('entity: ', 'object_adjective')
+
+    object1 = ""
+    object2 = ""
+    adjective = ""
+
+    for args in f_arg:
+        print(args.get('entity'), ":", args.get('value'))
+        if args.get('entity') == 'object':
+            if object1 == "":
+                object1 = args.get('value')
+            else:
+                object2 = args.get('value')
+        elif args.get('entity') == 'adjective':
+            adjective = args.get('value')
+
+    answer1 = wonderland_get_first_entity({"entityClass": object1})
+    answer2 = wonderland_get_first_entity({"entityClass": object2})
+
+    if adjective == "heaviest" or adjective == "heavier":
+
+        if len(f_arg) == 1 or object1 == "object":
+            answer = wonderland_get_entity()
+            heaviestObject = ""
+            weight = 0
+
+            for object in answer:
+                if int(object.get('entityWeight') or 0) > weight and object.get('entityName') == 'object':
+                    heaviestObject = object.get('entityClass')
+                    weight = object.get('entityWeight')
+
+            return "The heaviest " + object1 + " is the " + heaviestObject
+
+        if len(f_arg) == 2:
+            arg = {'entityCategory' : object1}
+            answer = wonderland_get_entity(arg)
+            heaviestObject = ""
+            weight = 0
+
+            for object in answer:
+                if object.get('entityWeight') > weight:
+                    heaviestObject = object.get('entityClass')
+                    weight = object.get('entityWeight')
+
+            return "The heaviest " + object1 + " is the " + heaviestObject
+
+        if len(f_arg) == 3:
+            if answer1.get('entityWeight') > answer2.get('entityWeight'):
+                return "The " + object1 + " is heavier than the " + object2
+            else:
+                return "The " + object2 + " is heavier than the " + object1
+
+    if adjective == "smallest" or adjective == "smaller":
+
+        if len(f_arg) == 1 or object1 == "object":
+            answer = wonderland_get_entity()
+            smallestObject = ""
+            size = 99999
+
+            for object in answer:
+                if int(object.get('entitySize') or 99999) < size and object.get('entityName') == 'object':
+                    smallestObject = object.get('entityClass')
+                    size = object.get('entitySize')
+
+            return "The smallest " + object1 + " is the " + smallestObject
+
+        if len(f_arg) == 2:
+
+            arg = {'entityCategory' : object1}
+            answer = wonderland_get_entity(arg)
+            smallestObject = ""
+            size = 9999999
+
+            for object in answer:
+                if object.get('entitySize') < size:
+                    smallestObject = object.get('entityClass')
+                    size = object.get('entitySize')
+
+            return "The smallest " + object1 + " is the " + smallestObject
+
+        if len(f_arg) == 3:
+            if answer1.get('entitySize') < answer2.get('entitySize'):
+                return "The " + object1 + " is smaller than the " + object2
+            else:
+                return "The " + object2 + " is smaller than the " + object1
+
+
+    if adjective == "biggest" or adjective == "bigger":
+
+        if len(f_arg) == 1 or object1 == "object":
+            answer = wonderland_get_entity()
+            biggestObject = ""
+            size = 0
+
+            for object in answer:
+                if int(object.get('entitySize') or 0) > size and object.get('entityName') == 'object':
+                    biggestObject = object.get('entityClass')
+                    size = object.get('entitySize')
+
+            return "The biggest " + object1 + " is the " + biggestObject
+
+        if len(f_arg) == 2:
+            arg = {'entityCategory' : object1}
+            answer = wonderland_get_entity(arg)
+            biggestObject = ""
+            size = 0
+
+            for object in answer:
+                if object.get('entitySize') > size:
+                    biggestObject = object.get('entityClass')
+                    size = object.get('entitySize')
+
+            return "The biggest " + object1 + " is the " + biggestObject
+
+        if len(f_arg) == 3:
+            if answer1.get('entitySize') > answer2.get('entitySize'):
+                return "The " + object1 + " is bigger than the " + object2
+            else:
+                return "The " + object2 + " is bigger than the " + object1
+
+    if adjective == "lightest" or adjective == "lighter":
+
+        if len(f_arg) == 1 or object1 == "object":
+            answer = wonderland_get_entity()
+            lightestObject = ""
+            weight = 99999
+
+            for object in answer:
+                if int(object.get('entityWeight') or 99999) < weight and object.get('entityName') == 'object':
+                    lightestObject = object.get('entityClass')
+                    weight = object.get('entityWeight')
+
+            return "The lightest " + object1 + " is the " + lightestObject
+
+        if len(f_arg) == 2:
+            arg = {'entityCategory': object1}
+            answer = wonderland_get_entity(arg)
+            lightestObject = ""
+            weight = 999999
+
+            for object in answer:
+                if object.get('entityWeight') < weight:
+                    lightestObject = object.get('entityClass')
+                    weight = object.get('entityWeight')
+
+            return "The lightest " + object1 + " is the " + lightestObject
+
+        if len(f_arg) == 3:
+            if answer1.get('entityWeight') > answer2.get('entityWeight'):
+                return "The " + object1 + " is heavier than the " + object2
+            else:
+                return "The " + object2 + " is heavier than the " + object1
+        if len(f_arg) == 3:
+            if answer1.get('entityWeight') < answer2.get('entityWeight'):
+                return "The " + object1 + " is lighter than the " + object2
+            else:
+                return "The " + object2 + " is lighter than the " + object1
+
 
 
 # Dict containing the entity and their function
@@ -303,13 +533,30 @@ def test_rasa(question):
     sentence = intent_functions[response.get('intent').get('name')](entities)
 
     # printing question/answer
-    print('*' * 40)
-    print('Q :', question)
-    print('A :', sentence)
+    #print('*' * 40)
+    #print('Q :', question)
+    return(sentence)
 
 if __name__ == "__main__":
     print("start wm_nlu")
-    test_rasa("How many drinks in the fridge ?")
+    question = "Which is the heaviest object?"
+    q = PredefinedQuestion()
+    q.loadQuestions("Questions.xml")
+    q.callback(question)
+
+    # QUESTIONS PRÉDÉFINIES
+    if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
+        print('*' * 40)
+        print('Q :', question)
+        print('A :', q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)])
+
+    # QUESTIONS CROWDS, PEOPLE, OBJECTS
+    else:
+        answer = test_rasa(question)
+        print('*' * 40)
+        print('Q :', question)
+        print('A :', answer)
+
 
     ###############################
     # QUESTIONS EXAMPLES

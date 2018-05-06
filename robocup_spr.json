@@ -534,6 +534,60 @@
             "entity": "room"
           }
         ]
+      },
+      {
+        "text": "What color is the banana ?",
+        "intent": "arena_color_object",
+        "entities": [
+          {
+            "start": 18,
+            "end": 24,
+            "value": "banana",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Which is the heaviest drinks ?",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 13,
+            "end": 21,
+            "value": "heaviest",
+            "entity": "adjective"
+          },
+          {
+            "start": 22,
+            "end": 28,
+            "value": "drinks",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "How many men are in the crowd?",
+        "intent": "crowd_count",
+        "entities": [
+          {
+            "start": 9,
+            "end": 12,
+            "value": "men",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Which is the biggest object?",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 13,
+            "end": 20,
+            "value": "biggest",
+            "entity": "adjective"
+          }
+        ]
       }
     ]
   }
