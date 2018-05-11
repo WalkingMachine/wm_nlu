@@ -1,27 +1,28 @@
-﻿{
+{
   "rasa_nlu_data": {
+    "entity_synonyms": [],
     "common_examples": [
       {
         "text": "Guide Sophia from the bed to the dining table",
         "intent": "guide_to",
         "entities": [
           {
-            "start": 6,
             "end": 12,
+            "entity": "name",
             "value": "Sophia",
-            "entity": "name"
+            "start": 6
           },
           {
-            "start": 22,
             "end": 25,
+            "entity": "object",
             "value": "bed",
-            "entity": "object"
+            "start": 22
           },
           {
-            "start": 33,
             "end": 45,
+            "entity": "object",
             "value": "dining table",
-            "entity": "object"
+            "start": 33
           }
         ]
       },
@@ -30,22 +31,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 7,
             "end": 11,
+            "entity": "name",
             "value": "John",
-            "entity": "name"
+            "start": 7
           },
           {
-            "start": 21,
             "end": 30,
+            "entity": "object",
             "value": "sideboard",
-            "entity": "object"
+            "start": 21
           },
           {
-            "start": 38,
             "end": 42,
+            "entity": "object",
             "value": "desk",
-            "entity": "object"
+            "start": 38
           }
         ]
       },
@@ -54,22 +55,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 5,
             "end": 9,
+            "entity": "name",
             "value": "Jeff",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 19,
             "end": 23,
+            "entity": "object",
             "value": "sofa",
-            "entity": "object"
+            "start": 19
           },
           {
-            "start": 31,
             "end": 35,
+            "entity": "object",
             "value": "sink",
-            "entity": "object"
+            "start": 31
           }
         ]
       },
@@ -78,22 +79,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 5,
             "end": 9,
+            "entity": "name",
             "value": "Jane",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 17,
             "end": 26,
+            "entity": "object",
             "value": "washbasin",
-            "entity": "object"
+            "start": 17
           },
           {
-            "start": 48,
             "end": 54,
+            "entity": "object",
             "value": "shower",
-            "entity": "object"
+            "start": 48
           }
         ]
       },
@@ -102,22 +103,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 5,
             "end": 10,
+            "entity": "name",
             "value": "Steve",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 18,
             "end": 24,
+            "entity": "object",
             "value": "toilet",
-            "entity": "object"
+            "start": 18
           },
           {
-            "start": 45,
             "end": 50,
+            "entity": "object",
             "value": "bidet",
-            "entity": "object"
+            "start": 45
           }
         ]
       },
@@ -126,22 +127,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 5,
             "end": 9,
+            "entity": "name",
             "value": "Ryan",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 17,
             "end": 24,
+            "entity": "object",
             "value": "bathtub",
-            "entity": "object"
+            "start": 17
           },
           {
-            "start": 45,
             "end": 50,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 45
           }
         ]
       },
@@ -150,22 +151,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 10,
             "end": 17,
+            "entity": "object",
             "value": "cabinet",
-            "entity": "object"
+            "start": 10
           },
           {
-            "start": 24,
             "end": 29,
+            "entity": "name",
             "value": "Frank",
-            "entity": "name"
+            "start": 24
           },
           {
-            "start": 52,
             "end": 56,
+            "entity": "object",
             "value": "sofa",
-            "entity": "object"
+            "start": 52
           }
         ]
       },
@@ -174,22 +175,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 16,
             "end": 20,
+            "entity": "object",
             "value": "sink",
-            "entity": "object"
+            "start": 16
           },
           {
-            "start": 27,
             "end": 31,
+            "entity": "name",
             "value": "John",
-            "entity": "name"
+            "start": 27
           },
           {
-            "start": 58,
             "end": 69,
+            "entity": "object",
             "value": "coffe table",
-            "entity": "object"
+            "start": 58
           }
         ]
       },
@@ -198,22 +199,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 10,
             "end": 18,
+            "entity": "object",
             "value": "tv couch",
-            "entity": "object"
+            "start": 10
           },
           {
-            "start": 25,
             "end": 30,
+            "entity": "name",
             "value": "Sarah",
-            "entity": "name"
+            "start": 25
           },
           {
-            "start": 52,
             "end": 62,
+            "entity": "object",
             "value": "baby chair",
-            "entity": "object"
+            "start": 52
           }
         ]
       },
@@ -222,22 +223,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 6,
             "end": 11,
+            "entity": "name",
             "value": "Chloe",
-            "entity": "name"
+            "start": 6
           },
           {
-            "start": 19,
             "end": 31,
+            "entity": "object",
             "value": "dining table",
-            "entity": "object"
+            "start": 19
           },
           {
-            "start": 57,
             "end": 61,
+            "entity": "object",
             "value": "sink",
-            "entity": "object"
+            "start": 57
           }
         ]
       },
@@ -246,22 +247,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 7,
             "end": 10,
+            "entity": "name",
             "value": "Eve",
-            "entity": "name"
+            "start": 7
           },
           {
-            "start": 18,
             "end": 22,
+            "entity": "object",
             "value": "desk",
-            "entity": "object"
+            "start": 18
           },
           {
-            "start": 47,
             "end": 52,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 47
           }
         ]
       },
@@ -270,22 +271,22 @@
         "intent": "guide_to",
         "entities": [
           {
-            "start": 5,
             "end": 10,
+            "entity": "name",
             "value": "Blake",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 18,
             "end": 26,
+            "entity": "object",
             "value": "armchair",
-            "entity": "object"
+            "start": 18
           },
           {
-            "start": 53,
             "end": 60,
+            "entity": "object",
             "value": "cabinet",
-            "entity": "object"
+            "start": 53
           }
         ]
       },
@@ -294,16 +295,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 15,
             "end": 19,
+            "entity": "name",
             "value": "Jake",
-            "entity": "name"
+            "start": 15
           },
           {
-            "start": 27,
             "end": 30,
+            "entity": "object",
             "value": "bed",
-            "entity": "object"
+            "start": 27
           }
         ]
       },
@@ -312,16 +313,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 32,
             "end": 39,
+            "entity": "name",
             "value": "Vanessa",
-            "entity": "name"
+            "start": 32
           },
           {
-            "start": 47,
             "end": 55,
+            "entity": "object",
             "value": "armchair",
-            "entity": "object"
+            "start": 47
           }
         ]
       },
@@ -330,16 +331,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 21,
             "end": 26,
+            "entity": "name",
             "value": "Tracy",
-            "entity": "name"
+            "start": 21
           },
           {
-            "start": 34,
             "end": 38,
+            "entity": "object",
             "value": "desk",
-            "entity": "object"
+            "start": 34
           }
         ]
       },
@@ -348,10 +349,10 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 20,
             "end": 28,
+            "entity": "room",
             "value": "bathroom",
-            "entity": "room"
+            "start": 20
           }
         ]
       },
@@ -360,16 +361,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 9,
             "end": 14,
+            "entity": "name",
             "value": "Robin",
-            "entity": "name"
+            "start": 9
           },
           {
-            "start": 22,
             "end": 29,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 22
           }
         ]
       },
@@ -378,16 +379,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 7,
             "end": 14,
+            "entity": "name",
             "value": "Michael",
-            "entity": "name"
+            "start": 7
           },
           {
-            "start": 22,
             "end": 30,
+            "entity": "room",
             "value": "corridor",
-            "entity": "room"
+            "start": 22
           }
         ]
       },
@@ -396,16 +397,16 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 10,
             "end": 18,
+            "entity": "room",
             "value": "bathroom",
-            "entity": "room"
+            "start": 10
           },
           {
-            "start": 25,
             "end": 31,
+            "entity": "name",
             "value": "Hayden",
-            "entity": "name"
+            "start": 25
           }
         ]
       },
@@ -414,10 +415,10 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 16,
             "end": 27,
+            "entity": "room",
             "value": "living room",
-            "entity": "room"
+            "start": 16
           }
         ]
       },
@@ -426,33 +427,32 @@
         "intent": "say_something",
         "entities": [
           {
-            "start": 10,
             "end": 17,
+            "entity": "room",
             "value": "bedroom",
-            "entity": "room"
+            "start": 10
           }
         ]
       },
       {
         "text": "Tell me how many apple there are on the dining table",
-        "intent": "count_object",
-        "entities": []
+        "intent": "count_object"
       },
       {
         "text": "Tell me how many bowl there are on the coffe table",
         "intent": "count_object",
         "entities": [
           {
-            "start": 17,
             "end": 21,
+            "entity": "object",
             "value": "bowl",
-            "entity": "object"
+            "start": 17
           },
           {
-            "start": 39,
             "end": 50,
+            "entity": "object",
             "value": "coffe table",
-            "entity": "object"
+            "start": 39
           }
         ]
       },
@@ -461,16 +461,16 @@
         "intent": "count_object",
         "entities": [
           {
-            "start": 17,
             "end": 20,
+            "entity": "object",
             "value": "mug",
-            "entity": "object"
+            "start": 17
           },
           {
-            "start": 38,
             "end": 43,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 38
           }
         ]
       },
@@ -479,16 +479,16 @@
         "intent": "find_object",
         "entities": [
           {
-            "start": 9,
             "end": 16,
+            "entity": "object",
             "value": "shampoo",
-            "entity": "object"
+            "start": 9
           },
           {
-            "start": 24,
             "end": 32,
+            "entity": "room",
             "value": "bathroom",
-            "entity": "room"
+            "start": 24
           }
         ]
       },
@@ -497,16 +497,16 @@
         "intent": "find_object",
         "entities": [
           {
-            "start": 11,
             "end": 16,
+            "entity": "object",
             "value": "pasta",
-            "entity": "object"
+            "start": 11
           },
           {
-            "start": 24,
             "end": 31,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 24
           }
         ]
       },
@@ -515,16 +515,16 @@
         "intent": "find_object",
         "entities": [
           {
-            "start": 13,
             "end": 17,
+            "entity": "object",
             "value": "chip",
-            "entity": "object"
+            "start": 13
           },
           {
-            "start": 25,
             "end": 36,
+            "entity": "room",
             "value": "living room",
-            "entity": "room"
+            "start": 25
           }
         ]
       },
@@ -533,22 +533,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 7,
             "end": 13,
+            "entity": "name",
             "value": "Jordan",
-            "entity": "name"
+            "start": 7
           },
           {
-            "start": 23,
             "end": 30,
+            "entity": "room",
             "value": "bedroom",
-            "entity": "room"
+            "start": 23
           },
           {
-            "start": 38,
             "end": 45,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 38
           }
         ]
       },
@@ -557,22 +557,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 9,
             "end": 15,
+            "entity": "name",
             "value": "Morgan",
-            "entity": "name"
+            "start": 9
           },
           {
-            "start": 25,
             "end": 31,
+            "entity": "object",
             "value": "shower",
-            "entity": "object"
+            "start": 25
           },
           {
-            "start": 39,
             "end": 46,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 39
           }
         ]
       },
@@ -581,22 +581,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 11,
             "end": 17,
+            "entity": "name",
             "value": "Peyton",
-            "entity": "name"
+            "start": 11
           },
           {
-            "start": 27,
             "end": 32,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 27
           },
           {
-            "start": 40,
             "end": 51,
+            "entity": "room",
             "value": "dining room",
-            "entity": "room"
+            "start": 40
           }
         ]
       },
@@ -605,22 +605,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 5,
             "end": 10,
+            "entity": "name",
             "value": "Jamie",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 18,
             "end": 23,
+            "entity": "object",
             "value": "chair",
-            "entity": "object"
+            "start": 18
           },
           {
-            "start": 46,
             "end": 54,
+            "entity": "room",
             "value": "bathroom",
-            "entity": "room"
+            "start": 46
           }
         ]
       },
@@ -629,22 +629,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 5,
             "end": 10,
+            "entity": "name",
             "value": "Robin",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 18,
             "end": 26,
+            "entity": "object",
             "value": "tv couch",
-            "entity": "object"
+            "start": 18
           },
           {
-            "start": 53,
             "end": 61,
+            "entity": "room",
             "value": "corridor",
-            "entity": "room"
+            "start": 53
           }
         ]
       },
@@ -653,22 +653,22 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 5,
             "end": 11,
+            "entity": "name",
             "value": "Taylor",
-            "entity": "name"
+            "start": 5
           },
           {
-            "start": 19,
             "end": 35,
+            "entity": "object",
             "value": "bathroom cabinet",
-            "entity": "object"
+            "start": 19
           },
           {
-            "start": 60,
             "end": 67,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 60
           }
         ]
       },
@@ -677,16 +677,16 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 16,
             "end": 20,
+            "entity": "object",
             "value": "sofa",
-            "entity": "object"
+            "start": 16
           },
           {
-            "start": 27,
             "end": 29,
+            "entity": "name",
             "value": "Jo",
-            "entity": "name"
+            "start": 27
           }
         ]
       },
@@ -695,16 +695,16 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 10,
             "end": 22,
+            "entity": "object",
             "value": "coffee table",
-            "entity": "object"
+            "start": 10
           },
           {
-            "start": 29,
             "end": 36,
+            "entity": "name",
             "value": "Vanessa",
-            "entity": "name"
+            "start": 29
           }
         ]
       },
@@ -713,16 +713,16 @@
         "intent": "follow",
         "entities": [
           {
-            "start": 16,
             "end": 26,
+            "entity": "object",
             "value": "baby chair",
-            "entity": "object"
+            "start": 16
           },
           {
-            "start": 33,
             "end": 37,
+            "entity": "name",
             "value": "Ryan",
-            "entity": "name"
+            "start": 33
           }
         ]
       },
@@ -731,10 +731,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 41,
+            "entity": "object",
             "value": "bed",
-            "entity": "object"
+            "start": 38
           }
         ]
       },
@@ -743,10 +743,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 43,
+            "entity": "object",
             "value": "chair",
-            "entity": "object"
+            "start": 38
           }
         ]
       },
@@ -755,10 +755,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 42,
+            "entity": "object",
             "value": "sofa",
-            "entity": "object"
+            "start": 38
           }
         ]
       },
@@ -767,10 +767,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 45,
+            "entity": "room",
             "value": "bedroom",
-            "entity": "room"
+            "start": 38
           }
         ]
       },
@@ -779,10 +779,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 49,
+            "entity": "room",
             "value": "living room",
-            "entity": "room"
+            "start": 38
           }
         ]
       },
@@ -791,10 +791,10 @@
         "intent": "find_people",
         "entities": [
           {
-            "start": 38,
             "end": 45,
+            "entity": "room",
             "value": "kitchen",
-            "entity": "room"
+            "start": 38
           }
         ]
       },
@@ -803,22 +803,22 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 16,
             "end": 21,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 16
           },
           {
-            "start": 26,
             "end": 31,
+            "entity": "object",
             "value": "melon",
-            "entity": "object"
+            "start": 26
           },
           {
-            "start": 41,
             "end": 44,
+            "entity": "room",
             "value": "bar",
-            "entity": "room"
+            "start": 41
           }
         ]
       },
@@ -827,28 +827,28 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 8,
             "end": 12,
+            "entity": "name",
             "value": "Jake",
-            "entity": "name"
+            "start": 8
           },
           {
-            "start": 20,
             "end": 24,
+            "entity": "object",
             "value": "sink",
-            "entity": "object"
+            "start": 20
           },
           {
-            "start": 29,
             "end": 36,
+            "entity": "object",
             "value": "pickles",
-            "entity": "object"
+            "start": 29
           },
           {
-            "start": 46,
             "end": 52,
+            "entity": "object",
             "value": "fridge",
-            "entity": "object"
+            "start": 46
           }
         ]
       },
@@ -857,28 +857,28 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 9,
             "end": 14,
+            "entity": "name",
             "value": "Simon",
-            "entity": "name"
+            "start": 9
           },
           {
-            "start": 22,
             "end": 25,
+            "entity": "object",
             "value": "bed",
-            "entity": "object"
+            "start": 22
           },
           {
-            "start": 30,
             "end": 33,
+            "entity": "object",
             "value": "box",
-            "entity": "object"
+            "start": 30
           },
           {
-            "start": 43,
             "end": 54,
+            "entity": "object",
             "value": "night table",
-            "entity": "object"
+            "start": 43
           }
         ]
       },
@@ -887,16 +887,16 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 8,
             "end": 13,
+            "entity": "object",
             "value": "knife",
-            "entity": "object"
+            "start": 8
           },
           {
-            "start": 23,
             "end": 26,
+            "entity": "object",
             "value": "bar",
-            "entity": "object"
+            "start": 23
           }
         ]
       },
@@ -905,28 +905,28 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 10,
             "end": 14,
+            "entity": "object",
             "value": "fork",
-            "entity": "object"
+            "start": 10
           },
           {
-            "start": 24,
             "end": 33,
+            "entity": "object",
             "value": "microwave",
-            "entity": "object"
+            "start": 24
           },
           {
-            "start": 49,
             "end": 57,
+            "entity": "name",
             "value": "Jonathan",
-            "entity": "name"
+            "start": 49
           },
           {
-            "start": 65,
             "end": 75,
+            "entity": "name",
             "value": "baby chair",
-            "entity": "name"
+            "start": 65
           }
         ]
       },
@@ -935,28 +935,28 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 9,
             "end": 15,
+            "entity": "object",
             "value": "napkin",
-            "entity": "object"
+            "start": 9
           },
           {
-            "start": 25,
             "end": 33,
+            "entity": "object",
             "value": "cupboard",
-            "entity": "object"
+            "start": 25
           },
           {
-            "start": 52,
             "end": 57,
+            "entity": "name",
             "value": "David",
-            "entity": "name"
+            "start": 52
           },
           {
-            "start": 65,
             "end": 70,
+            "entity": "object",
             "value": "stove",
-            "entity": "object"
+            "start": 65
           }
         ]
       },
@@ -965,22 +965,22 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 12,
             "end": 16,
+            "entity": "object",
             "value": "bowl",
-            "entity": "object"
+            "start": 12
           },
           {
-            "start": 26,
             "end": 33,
+            "entity": "object",
             "value": "dresser",
-            "entity": "object"
+            "start": 26
           },
           {
-            "start": 52,
             "end": 61,
+            "entity": "object",
             "value": "bookshelf",
-            "entity": "object"
+            "start": 52
           }
         ]
       },
@@ -989,22 +989,22 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 8,
             "end": 15,
+            "entity": "object",
             "value": "shampoo",
-            "entity": "object"
+            "start": 8
           },
           {
-            "start": 25,
             "end": 33,
+            "entity": "object",
             "value": "wardrobe",
-            "entity": "object"
+            "start": 25
           },
           {
-            "start": 54,
             "end": 58,
+            "entity": "object",
             "value": "sofa",
-            "entity": "object"
+            "start": 54
           }
         ]
       },
@@ -1013,43 +1013,26 @@
         "intent": "deliver",
         "entities": [
           {
-            "start": 10,
             "end": 16,
+            "entity": "object",
             "value": "sponge",
-            "entity": "object"
+            "start": 10
           },
           {
-            "start": 26,
             "end": 40,
+            "entity": "object",
             "value": "cutlery drawer",
-            "entity": "object"
+            "start": 26
           },
           {
-            "start": 59,
             "end": 68,
+            "entity": "object",
             "value": "fireplace",
-            "entity": "object"
-          }
-        ]
-      },
-      {
-        "text": "Say something about yourself to Brian at the TV stand",
-        "intent": "say_something",
-        "entities": [
-          {
-            "start": 32,
-            "end": 37,
-            "value": "Brian",
-            "entity": "name"
-          },
-          {
-            "start": 45,
-            "end": 53,
-            "value": "TV stand",
-            "entity": "object"
+            "start": 59
           }
         ]
       }
-    ]
+    ],
+    "regex_features": []
   }
 }

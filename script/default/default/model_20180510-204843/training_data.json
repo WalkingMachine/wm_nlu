@@ -1,0 +1,1056 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "intent": "guide_to",
+        "text": "Guide Sophia from the bed to the dining table",
+        "entities": [
+          {
+            "value": "Sophia",
+            "start": 6,
+            "entity": "name",
+            "end": 12
+          },
+          {
+            "value": "bed",
+            "start": 22,
+            "entity": "object",
+            "end": 25
+          },
+          {
+            "value": "dining table",
+            "start": 33,
+            "entity": "object",
+            "end": 45
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Escort John from the sideboard to the desk",
+        "entities": [
+          {
+            "value": "John",
+            "start": 7,
+            "entity": "name",
+            "end": 11
+          },
+          {
+            "value": "sideboard",
+            "start": 21,
+            "entity": "object",
+            "end": 30
+          },
+          {
+            "value": "desk",
+            "start": 38,
+            "entity": "object",
+            "end": 42
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Lead Jeff from the sofa to the sink",
+        "entities": [
+          {
+            "value": "Jeff",
+            "start": 5,
+            "entity": "name",
+            "end": 9
+          },
+          {
+            "value": "sofa",
+            "start": 19,
+            "entity": "object",
+            "end": 23
+          },
+          {
+            "value": "sink",
+            "start": 31,
+            "entity": "object",
+            "end": 35
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Meet Jane at the washbasin and guide her to the shower",
+        "entities": [
+          {
+            "value": "Jane",
+            "start": 5,
+            "entity": "name",
+            "end": 9
+          },
+          {
+            "value": "washbasin",
+            "start": 17,
+            "entity": "object",
+            "end": 26
+          },
+          {
+            "value": "shower",
+            "start": 48,
+            "entity": "object",
+            "end": 54
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Meet Steve at the toilet and take him to the bidet",
+        "entities": [
+          {
+            "value": "Steve",
+            "start": 5,
+            "entity": "name",
+            "end": 10
+          },
+          {
+            "value": "toilet",
+            "start": 18,
+            "entity": "object",
+            "end": 24
+          },
+          {
+            "value": "bidet",
+            "start": 45,
+            "entity": "object",
+            "end": 50
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Meet Ryan at the bathtub and lead him to the stove",
+        "entities": [
+          {
+            "value": "Ryan",
+            "start": 5,
+            "entity": "name",
+            "end": 9
+          },
+          {
+            "value": "bathtub",
+            "start": 17,
+            "entity": "object",
+            "end": 24
+          },
+          {
+            "value": "stove",
+            "start": 45,
+            "entity": "object",
+            "end": 50
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Go to the cabinet, meet Frank, and guide him to the sofa",
+        "entities": [
+          {
+            "value": "cabinet",
+            "start": 10,
+            "entity": "object",
+            "end": 17
+          },
+          {
+            "value": "Frank",
+            "start": 24,
+            "entity": "name",
+            "end": 29
+          },
+          {
+            "value": "sofa",
+            "start": 52,
+            "entity": "object",
+            "end": 56
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Navigate to the sink, meet John, and accompany him to the coffe table ",
+        "entities": [
+          {
+            "value": "sink",
+            "start": 16,
+            "entity": "object",
+            "end": 20
+          },
+          {
+            "value": "John",
+            "start": 27,
+            "entity": "name",
+            "end": 31
+          },
+          {
+            "value": "coffe table",
+            "start": 58,
+            "entity": "object",
+            "end": 69
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Go to the tv couch, meet Sarah, and take her to the baby chair",
+        "entities": [
+          {
+            "value": "tv couch",
+            "start": 10,
+            "entity": "object",
+            "end": 18
+          },
+          {
+            "value": "Sarah",
+            "start": 25,
+            "entity": "name",
+            "end": 30
+          },
+          {
+            "value": "baby chair",
+            "start": 52,
+            "entity": "object",
+            "end": 62
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Guide Chloe to the dining table, you may find her at the sink",
+        "entities": [
+          {
+            "value": "Chloe",
+            "start": 6,
+            "entity": "name",
+            "end": 11
+          },
+          {
+            "value": "dining table",
+            "start": 19,
+            "entity": "object",
+            "end": 31
+          },
+          {
+            "value": "sink",
+            "start": 57,
+            "entity": "object",
+            "end": 61
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Escort Eve to the desk, you can fin her at the stove",
+        "entities": [
+          {
+            "value": "Eve",
+            "start": 7,
+            "entity": "name",
+            "end": 10
+          },
+          {
+            "value": "desk",
+            "start": 18,
+            "entity": "object",
+            "end": 22
+          },
+          {
+            "value": "stove",
+            "start": 47,
+            "entity": "object",
+            "end": 52
+          }
+        ]
+      },
+      {
+        "intent": "guide_to",
+        "text": "Lead Blake to the armchair, you will find her at the cabinet",
+        "entities": [
+          {
+            "value": "Blake",
+            "start": 5,
+            "entity": "name",
+            "end": 10
+          },
+          {
+            "value": "armchair",
+            "start": 18,
+            "entity": "object",
+            "end": 26
+          },
+          {
+            "value": "cabinet",
+            "start": 53,
+            "entity": "object",
+            "end": 60
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Tell a joke to Jake at the bed",
+        "entities": [
+          {
+            "value": "Jake",
+            "start": 15,
+            "entity": "name",
+            "end": 19
+          },
+          {
+            "value": "bed",
+            "start": 27,
+            "entity": "object",
+            "end": 30
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Say something about yourself to Vanessa at the armchair",
+        "entities": [
+          {
+            "value": "Vanessa",
+            "start": 32,
+            "entity": "name",
+            "end": 39
+          },
+          {
+            "value": "armchair",
+            "start": 47,
+            "entity": "object",
+            "end": 55
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Answer a question to Tracy at the desk",
+        "entities": [
+          {
+            "value": "Tracy",
+            "start": 21,
+            "entity": "name",
+            "end": 26
+          },
+          {
+            "value": "desk",
+            "start": 34,
+            "entity": "object",
+            "end": 38
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Find someone in the bathroom and tell the day of the week",
+        "entities": [
+          {
+            "value": "bathroom",
+            "start": 20,
+            "entity": "room",
+            "end": 28
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Look for Robin in the kitchen and answer a question",
+        "entities": [
+          {
+            "value": "Robin",
+            "start": 9,
+            "entity": "name",
+            "end": 14
+          },
+          {
+            "value": "kitchen",
+            "start": 22,
+            "entity": "room",
+            "end": 29
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Locate Michael in the corridor and say what day is tomorrow",
+        "entities": [
+          {
+            "value": "Michael",
+            "start": 7,
+            "entity": "name",
+            "end": 14
+          },
+          {
+            "value": "corridor",
+            "start": 22,
+            "entity": "room",
+            "end": 30
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Go to the bathroom, find Hayden, and tell your team’s name",
+        "entities": [
+          {
+            "value": "bathroom",
+            "start": 10,
+            "entity": "room",
+            "end": 18
+          },
+          {
+            "value": "Hayden",
+            "start": 25,
+            "entity": "name",
+            "end": 31
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Navigate to the living room, locate someone, and answer a question",
+        "entities": [
+          {
+            "value": "living room",
+            "start": 16,
+            "entity": "room",
+            "end": 27
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Go to the bedroom, look for a person, and say a joke",
+        "entities": [
+          {
+            "value": "bedroom",
+            "start": 10,
+            "entity": "room",
+            "end": 17
+          }
+        ]
+      },
+      {
+        "intent": "count_object",
+        "text": "Tell me how many apple there are on the dining table"
+      },
+      {
+        "intent": "count_object",
+        "text": "Tell me how many bowl there are on the coffe table",
+        "entities": [
+          {
+            "value": "bowl",
+            "start": 17,
+            "entity": "object",
+            "end": 21
+          },
+          {
+            "value": "coffe table",
+            "start": 39,
+            "entity": "object",
+            "end": 50
+          }
+        ]
+      },
+      {
+        "intent": "count_object",
+        "text": "Tell me how many mug there are on the stove",
+        "entities": [
+          {
+            "value": "mug",
+            "start": 17,
+            "entity": "object",
+            "end": 20
+          },
+          {
+            "value": "stove",
+            "start": 38,
+            "entity": "object",
+            "end": 43
+          }
+        ]
+      },
+      {
+        "intent": "find_object",
+        "text": "Find the shampoo in the bathroom",
+        "entities": [
+          {
+            "value": "shampoo",
+            "start": 9,
+            "entity": "object",
+            "end": 16
+          },
+          {
+            "value": "bathroom",
+            "start": 24,
+            "entity": "room",
+            "end": 32
+          }
+        ]
+      },
+      {
+        "intent": "find_object",
+        "text": "Locate the pasta in the kitchen",
+        "entities": [
+          {
+            "value": "pasta",
+            "start": 11,
+            "entity": "object",
+            "end": 16
+          },
+          {
+            "value": "kitchen",
+            "start": 24,
+            "entity": "room",
+            "end": 31
+          }
+        ]
+      },
+      {
+        "intent": "find_object",
+        "text": "Look for the chip in the living room",
+        "entities": [
+          {
+            "value": "chip",
+            "start": 13,
+            "entity": "object",
+            "end": 17
+          },
+          {
+            "value": "living room",
+            "start": 25,
+            "entity": "room",
+            "end": 36
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Follow Jordan from the bedroom to the kitchen",
+        "entities": [
+          {
+            "value": "Jordan",
+            "start": 7,
+            "entity": "name",
+            "end": 13
+          },
+          {
+            "value": "bedroom",
+            "start": 23,
+            "entity": "room",
+            "end": 30
+          },
+          {
+            "value": "kitchen",
+            "start": 38,
+            "entity": "room",
+            "end": 45
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Go after Morgan from the shower to the kitchen",
+        "entities": [
+          {
+            "value": "Morgan",
+            "start": 9,
+            "entity": "name",
+            "end": 15
+          },
+          {
+            "value": "shower",
+            "start": 25,
+            "entity": "object",
+            "end": 31
+          },
+          {
+            "value": "kitchen",
+            "start": 39,
+            "entity": "room",
+            "end": 46
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Come after Peyton from the stove to the dining room",
+        "entities": [
+          {
+            "value": "Peyton",
+            "start": 11,
+            "entity": "name",
+            "end": 17
+          },
+          {
+            "value": "stove",
+            "start": 27,
+            "entity": "object",
+            "end": 32
+          },
+          {
+            "value": "dining room",
+            "start": 40,
+            "entity": "room",
+            "end": 51
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Meet Jamie at the chair and follow her to the bathroom",
+        "entities": [
+          {
+            "value": "Jamie",
+            "start": 5,
+            "entity": "name",
+            "end": 10
+          },
+          {
+            "value": "chair",
+            "start": 18,
+            "entity": "object",
+            "end": 23
+          },
+          {
+            "value": "bathroom",
+            "start": 46,
+            "entity": "room",
+            "end": 54
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Meet Robin at the tv couch and come after him to the corridor",
+        "entities": [
+          {
+            "value": "Robin",
+            "start": 5,
+            "entity": "name",
+            "end": 10
+          },
+          {
+            "value": "tv couch",
+            "start": 18,
+            "entity": "object",
+            "end": 26
+          },
+          {
+            "value": "corridor",
+            "start": 53,
+            "entity": "room",
+            "end": 61
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Meet Taylor at the bathroom cabinet and go after him to the kitchen",
+        "entities": [
+          {
+            "value": "Taylor",
+            "start": 5,
+            "entity": "name",
+            "end": 11
+          },
+          {
+            "value": "bathroom cabinet",
+            "start": 19,
+            "entity": "object",
+            "end": 35
+          },
+          {
+            "value": "kitchen",
+            "start": 60,
+            "entity": "room",
+            "end": 67
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Navigate to the sofa, meet Jo, and follow him",
+        "entities": [
+          {
+            "value": "sofa",
+            "start": 16,
+            "entity": "object",
+            "end": 20
+          },
+          {
+            "value": "Jo",
+            "start": 27,
+            "entity": "name",
+            "end": 29
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Go to the coffee table, meet Vanessa, and come after her",
+        "entities": [
+          {
+            "value": "coffee table",
+            "start": 10,
+            "entity": "object",
+            "end": 22
+          },
+          {
+            "value": "Vanessa",
+            "start": 29,
+            "entity": "name",
+            "end": 36
+          }
+        ]
+      },
+      {
+        "intent": "follow",
+        "text": "Navigate to the baby chair, meet Ryan, and go after him ",
+        "entities": [
+          {
+            "value": "baby chair",
+            "start": 16,
+            "entity": "object",
+            "end": 26
+          },
+          {
+            "value": "Ryan",
+            "start": 33,
+            "entity": "name",
+            "end": 37
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person at the bed",
+        "entities": [
+          {
+            "value": "bed",
+            "start": 38,
+            "entity": "object",
+            "end": 41
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person at the chair",
+        "entities": [
+          {
+            "value": "chair",
+            "start": 38,
+            "entity": "object",
+            "end": 43
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person at the sofa",
+        "entities": [
+          {
+            "value": "sofa",
+            "start": 38,
+            "entity": "object",
+            "end": 42
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person in the bedroom",
+        "entities": [
+          {
+            "value": "bedroom",
+            "start": 38,
+            "entity": "room",
+            "end": 45
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person in the living room",
+        "entities": [
+          {
+            "value": "living room",
+            "start": 38,
+            "entity": "room",
+            "end": 49
+          }
+        ]
+      },
+      {
+        "intent": "find_people",
+        "text": "Tell me the name of the person in the kitchen",
+        "entities": [
+          {
+            "value": "kitchen",
+            "start": 38,
+            "entity": "room",
+            "end": 45
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Bring me at the stove the melon from the bar ",
+        "entities": [
+          {
+            "value": "stove",
+            "start": 16,
+            "entity": "object",
+            "end": 21
+          },
+          {
+            "value": "melon",
+            "start": 26,
+            "entity": "object",
+            "end": 31
+          },
+          {
+            "value": "bar",
+            "start": 41,
+            "entity": "room",
+            "end": 44
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Give to Jake at the sink the pickles from the fridge",
+        "entities": [
+          {
+            "value": "Jake",
+            "start": 8,
+            "entity": "name",
+            "end": 12
+          },
+          {
+            "value": "sink",
+            "start": 20,
+            "entity": "object",
+            "end": 24
+          },
+          {
+            "value": "pickles",
+            "start": 29,
+            "entity": "object",
+            "end": 36
+          },
+          {
+            "value": "fridge",
+            "start": 46,
+            "entity": "object",
+            "end": 52
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Bring to Simon at the bed the box from the night table",
+        "entities": [
+          {
+            "value": "Simon",
+            "start": 9,
+            "entity": "name",
+            "end": 14
+          },
+          {
+            "value": "bed",
+            "start": 22,
+            "entity": "object",
+            "end": 25
+          },
+          {
+            "value": "box",
+            "start": 30,
+            "entity": "object",
+            "end": 33
+          },
+          {
+            "value": "night table",
+            "start": 43,
+            "entity": "object",
+            "end": 54
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Get the knife from the bar and bring it to me",
+        "entities": [
+          {
+            "value": "knife",
+            "start": 8,
+            "entity": "object",
+            "end": 13
+          },
+          {
+            "value": "bar",
+            "start": 23,
+            "entity": "object",
+            "end": 26
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Grasp the fork from the microwave and give it to Jonathan at the baby chair",
+        "entities": [
+          {
+            "value": "fork",
+            "start": 10,
+            "entity": "object",
+            "end": 14
+          },
+          {
+            "value": "microwave",
+            "start": 24,
+            "entity": "object",
+            "end": 33
+          },
+          {
+            "value": "Jonathan",
+            "start": 49,
+            "entity": "name",
+            "end": 57
+          },
+          {
+            "value": "baby chair",
+            "start": 65,
+            "entity": "name",
+            "end": 75
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Take the napkin from the cupboard and deliver it to David at the stove",
+        "entities": [
+          {
+            "value": "napkin",
+            "start": 9,
+            "entity": "object",
+            "end": 15
+          },
+          {
+            "value": "cupboard",
+            "start": 25,
+            "entity": "object",
+            "end": 33
+          },
+          {
+            "value": "David",
+            "start": 52,
+            "entity": "name",
+            "end": 57
+          },
+          {
+            "value": "stove",
+            "start": 65,
+            "entity": "object",
+            "end": 70
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Pick up the bowl from the dresser and put it on the bookshelf",
+        "entities": [
+          {
+            "value": "bowl",
+            "start": 12,
+            "entity": "object",
+            "end": 16
+          },
+          {
+            "value": "dresser",
+            "start": 26,
+            "entity": "object",
+            "end": 33
+          },
+          {
+            "value": "bookshelf",
+            "start": 52,
+            "entity": "object",
+            "end": 61
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Get the shampoo from the wardrobe and place it on the sofa",
+        "entities": [
+          {
+            "value": "shampoo",
+            "start": 8,
+            "entity": "object",
+            "end": 15
+          },
+          {
+            "value": "wardrobe",
+            "start": 25,
+            "entity": "object",
+            "end": 33
+          },
+          {
+            "value": "sofa",
+            "start": 54,
+            "entity": "object",
+            "end": 58
+          }
+        ]
+      },
+      {
+        "intent": "deliver",
+        "text": "Grasp the sponge from the cutlery drawer and put it on the fireplace",
+        "entities": [
+          {
+            "value": "sponge",
+            "start": 10,
+            "entity": "object",
+            "end": 16
+          },
+          {
+            "value": "cutlery drawer",
+            "start": 26,
+            "entity": "object",
+            "end": 40
+          },
+          {
+            "value": "fireplace",
+            "start": 59,
+            "entity": "object",
+            "end": 68
+          }
+        ]
+      },
+      {
+        "intent": "say_something",
+        "text": "Say something about yourself to Brian at the TV stand",
+        "entities": [
+          {
+            "value": "Brian",
+            "start": 32,
+            "entity": "name",
+            "end": 37
+          },
+          {
+            "value": "TV stand",
+            "start": 45,
+            "entity": "object",
+            "end": 53
+          }
+        ]
+      }
+    ],
+    "regex_features": [],
+    "entity_synonyms": []
+  }
+}
