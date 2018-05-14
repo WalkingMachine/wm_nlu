@@ -12,10 +12,11 @@ from rasa_nlu.training_data import load_data
 from rasa_nlu.model import Trainer
 from rasa_nlu import config
 from rasa_nlu.model import Interpreter
+
 import json
 import xml.etree.ElementTree as ET
 
-
+from sara_msgs.msg import *
 from wm_nlu.srv import *
 import rospkg
 
@@ -551,7 +552,7 @@ class Question():
         print("Calling rasa_nlu...")
         print('*' * 40)
         response = self.rasa.interpreter.parse(question)
-        print(response)
+        #print(response)
         entities = response.get('entities')
 
         sentence = self.rasa.intent_functions[response.get('intent').get('name')](entities)
