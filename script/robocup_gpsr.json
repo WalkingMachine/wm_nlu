@@ -1085,6 +1085,18 @@
             "entity": "object"
           }
         ]
+      },
+      {
+        "text": "Find a person in the bedroom and tell your teams country",
+        "intent": "say_something",
+        "entities": [
+          {
+            "start": 21,
+            "end": 28,
+            "value": "bedroom",
+            "entity": "room"
+          }
+        ]
       }
     ]
   }

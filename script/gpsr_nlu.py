@@ -77,7 +77,7 @@ class RasaNLU():
         action = ActionMsg()
         action.Action = "Find"
         action.args.append(arg) # what to find
-        action.args.append("")  # where to look for, empty = actual place
+        #action.args.append("")  # where to look for, empty = actual place
 
         print(": Look for a " + arg)
         return action
@@ -202,6 +202,15 @@ class RasaNLU():
         print(": Place on " + arg)
         return action
 
+    def createActionAnswer(self,arg=None):
+        action = ActionMsg()
+        action.Action = "Answer"
+
+        #action.args.append() # object to place on
+
+        print(": Answer question ")
+        return action
+
     # args :	Name + Beacon1 + Beacon2
     def guide_to(self, f_arg=None):
         print('entity :', 'guide_to')
@@ -278,7 +287,7 @@ class RasaNLU():
             return "We are from Ecole de Technologie Superieure"
         elif "joke" in words:
             return "I'd like to tell you a joke. " + self.randomString(joke)
-        return "Answer question"
+        return "SPR"
 
     def say_something(self, f_arg=None):
         print('entity :', 'say_something')
@@ -288,12 +297,18 @@ class RasaNLU():
 
         print('*' * 40)
 
+        sentenceToSay = str(self.whatToSay(self.sentence))
+        if sentenceToSay == "SPR":
+            self.answerAction = self.createActionAnswer()
+        else:
+            self.answerAction = self.createActionSay(sentenceToSay)
+
         if len(f_arg) == 1:
             msg = ActionArrayMsg()
 
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindOperator())
-            msg.actions.append(self.createActionSay(str(self.whatToSay(self.sentence))))
+            msg.actions.append(self.answerAction)
             msg.actions.append(self.createActionNavigate('operator'))
 
             return msg
@@ -304,7 +319,7 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFindOperator(f_arg[0].get('value')))
-                msg.actions.append(self.createActionSay(str(self.whatToSay(self.sentence))))
+                msg.actions.append(self.answerAction)
                 msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
@@ -316,7 +331,7 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindOperator(f_arg[1].get('value')))
-                msg.actions.append(self.createActionSay(str(self.whatToSay(self.sentence))))
+                msg.actions.append(self.answerAction)
                 msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg

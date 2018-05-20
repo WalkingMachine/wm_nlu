@@ -69,6 +69,20 @@ class RasaNLU():
             'object_adjective': self.object_adjective
         }
 
+        self.personType = {
+            "girl": "girl",
+            "girls": "girl",
+            "women": "girl",
+            "woman": "girl",
+            "females": "girl",
+            "female": "girl",
+            "men": "boy",
+            "boys": "boy",
+            "boy": "boy",
+            "man": "boy",
+            "people": ""
+        }
+
         sys.stderr = open(os.devnull, 'w')
 
         # Load the config files
@@ -86,6 +100,9 @@ class RasaNLU():
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
         print("RasaNLU init done.")
+
+
+
 
     def wonderland_get_first_entity(self, args = None ):
 
@@ -127,6 +144,52 @@ class RasaNLU():
             response = requests.get(url, headers)
 
         parsedJson = json.loads(response.text)
+
+        return parsedJson
+
+
+    def wonderland_get_people(self, args = None ):
+
+        url = "http://localhost:8000/api/people/"
+
+        headers = {
+            'api-key': "43d5d4a6b88c4c2ea303188fcbc3385f79d1e961",
+            'cache-control': "no-cache",
+            'postman-token': "c0ef09c6-ad86-b7f4-52be-fe3c0f6d1238"
+        }
+        response = None
+
+        if args != None:
+            response = requests.get(url, headers=headers, params=args)
+        else:
+            response = requests.get(url, headers)
+
+        parsedJson = json.loads(response.text)
+
+        return parsedJson
+
+
+
+    def wonderland_get_people_first_entity(self, args = None ):
+
+        url = "http://localhost:8000/api/people/"
+
+        headers = {
+            'api-key': "43d5d4a6b88c4c2ea303188fcbc3385f79d1e961",
+            'cache-control': "no-cache",
+            'postman-token': "c0ef09c6-ad86-b7f4-52be-fe3c0f6d1238"
+        }
+        response = None
+
+        if args != None:
+            response = requests.get(url, headers=headers, params=args)
+        else:
+            response = requests.get(url, headers)
+
+        parsedJson = json.loads(response.text)
+
+        if isinstance(parsedJson, list) and len(parsedJson) > 0:
+            return parsedJson[0]
 
         return parsedJson
 
@@ -180,25 +243,43 @@ class RasaNLU():
 
 
         if len(f_arg) == 1:
-            if f_arg[0].get('entity') == "object":
-                arg = {"entityClass": f_arg[0].get('value')}
-                if len(self.wonderland_get_entity(arg)) != 0:
-                    sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
-                    return sentence
-                else:
-                    arg = {"entityCategory": f_arg[0].get('value')}
-                    sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
-                    return sentence
+            #if f_arg[0].get('entity') == "object":
+            arg = {"entityClass": f_arg[0].get('value')}
+            if len(self.wonderland_get_entity(arg)) != 0:
+                sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
+                return sentence
+            else:
+                arg = {"entityCategory": f_arg[0].get('value')}
+                sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
+                return sentence
 
         elif len(f_arg) == 2:
-            if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
-                arg = {"entityClass": f_arg[0].get('value')}
+            #if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
+            arg = {"entityClass": f_arg[0].get('value')}
 
-                # requete wonderland => trouver id du container
-                request_arg = {"entityClass": f_arg[1].get('value')}
-                answer = self.wonderland_get_first_entity(request_arg)
-                container_id = answer.get('entityId')
+            # requete wonderland => trouver id du container
+            request_arg = {"entityClass": f_arg[1].get('value')}
+            answer = self.wonderland_get_first_entity(request_arg)
+            container_id = answer.get('entityId')
 
+            count = 0
+            id = -1
+
+            # recursive search for container
+            objects = self.wonderland_get_entity(arg)
+            for object in objects:
+                id = object.get('entityContainer')
+                if id == container_id:
+                    count += 1
+                else:
+                    while id != container_id and id != None:
+                        id = object.get('entityContainer')
+                        if id == container_id:
+                            count += 1
+                        object = self.wonderland_get_first_entity({"entityId": id})
+
+            if count == 0:
+                arg = {"entityCategory": f_arg[0].get('value')}
                 count = 0
                 id = -1
 
@@ -215,25 +296,7 @@ class RasaNLU():
                                 count += 1
                             object = self.wonderland_get_first_entity({"entityId": id})
 
-                if count == 0:
-                    arg = {"entityCategory": f_arg[0].get('value')}
-                    count = 0
-                    id = -1
-
-                    # recursive search for container
-                    objects = self.wonderland_get_entity(arg)
-                    for object in objects:
-                        id = object.get('entityContainer')
-                        if id == container_id:
-                            count += 1
-                        else:
-                            while id != container_id and id != None:
-                                id = object.get('entityContainer')
-                                if id == container_id:
-                                    count += 1
-                                object = self.wonderland_get_first_entity({"entityId": id})
-
-                return "There's " + str(count) + " " + f_arg[0].get('value') + " in the " + f_arg[1].get('value')
+            return "There's " + str(count) + " " + f_arg[0].get('value') + " in the " + f_arg[1].get('value')
 
 
 
@@ -241,7 +304,7 @@ class RasaNLU():
 
     # ARGS
     # -object                        (how many girls ?)
-    # -object && gesture             (how many man standing ?)      #TODO
+    # -object && gesture             (how many man standing ?)      #TODO train
     # -object && color               (how many boys wearing blue ?)
     # RETURN : count
     def crowd_count(self, f_arg=None):
@@ -249,55 +312,98 @@ class RasaNLU():
         for arg in f_arg:
             print(arg.get('entity'), ":", arg.get('value'))
 
-        requestArg = {"entityClass":"person"}
-        answer = self.wonderland_get_entity(requestArg)
 
-        personType = {
-            "girl":"girl",
-            "girls":"girl",
-            "women":"girl",
-            "woman":"girl",
-            "men":"boy",
-            "boys":"boy",
-            "boy":"boy",
-            "man":"boy",
-            "people":""
-        }
 
         if len(f_arg) == 1:
             count = 0
-            for person in answer:
-                if f_arg[0].get('value') == "people":
-                    count += 1
-                elif person.get('entityName') == personType.get(f_arg[0].get('value')):
-                    count = count + 1
+            if f_arg[0].get('value') == "people":
+                count = len(self.wonderland_get_people())
+            else:
+                requestArg = {"peopleGender": self.personType.get(f_arg[0].get('value'))}
+                count = len(self.wonderland_get_people(requestArg))
+
             return "There's " + str(count) + " " + f_arg[0].get('value')
+
 
         if len(f_arg) == 2:
             if f_arg[1].get('entity') == "color":
                 count = 0
-                for person in answer:
-                    if f_arg[0].get('value') == "people" and person.get('entityColor') == f_arg[1].get('value'):
-                        count += 1
-                    if person.get('entityName') == personType.get(f_arg[0].get('value')) \
-                            and person.get('entityColor') == f_arg[1].get('value'):
-                        count = count + 1
+                if f_arg[0].get('value') == "people":
+                    requestArg = {"peopleColor": f_arg[1].get('value')}
+                    count = len(self.wonderland_get_people(requestArg))
+                else:
+                    requestArg = {"peopleColor": f_arg[1].get('value'),
+                                  "peopleGender":self.personType.get(f_arg[0].get('value'))}
+                    count = len(self.wonderland_get_people(requestArg))
+
                 return "There's " + str(count) + " " + f_arg[0].get('value') + " wearing " + f_arg[1].get('value')
 
             if f_arg[1].get('entity') == "gesture":
                 count = 0
-                return "I can't answer this question yet"
+                if f_arg[0].get('value') == "people":
+                    requestArg = {"peoplePose": f_arg[1].get('value')}
+                    count = len(self.wonderland_get_people(requestArg))
+                else:
+                    requestArg = {"peopleGender": self.personType.get(f_arg[0].get('value')),
+                                  "peoplePose": f_arg[1].get('value')}
+                    count = len(self.wonderland_get_people(requestArg))
+                return "There's " + str(count) + " " + f_arg[0].get('value') +" "+ f_arg[1].get('value')
+
+        if len(f_arg) == 3 and f_arg[0].get('entity') == "people_type" and f_arg[1].get('entity') == "gesture" and f_arg[2].get('entity') == "gesture":
+
+            if f_arg[0].get('value') == "people":
+
+                requestArg = {"peoplePose": f_arg[1].get('value')}
+                count = len(self.wonderland_get_people(requestArg))
+
+                requestArg = {"peoplePose": f_arg[2].get('value')}
+                count += len(self.wonderland_get_people(requestArg))
+
+                return "There's " + str(count) + " " + f_arg[0].get('value') + " " + f_arg[1].get('value') + " or " + f_arg[2].get('value')
+
+            else:
+                requestArg = {"peopleGender": self.personType.get(f_arg[0].get('value')),
+                              "peoplePose": f_arg[1].get('value')}
+
+                count = len(self.wonderland_get_people(requestArg))
+
+                requestArg = {"peopleGender": self.personType.get(f_arg[0].get('value')),
+                              "peoplePose": f_arg[2].get('value')}
+
+                count += len(self.wonderland_get_people(requestArg))
+
+                return "There's " + str(count) + " " + f_arg[0].get('value') + " " + f_arg[1].get('value') + " or " + f_arg[2].get('value')
+
+        return "I'm sorry, I don't know how many people there is"
 
     # ARGS
-    # -gesture && person_type        (tell me if the standing person was a male) #TODO
-    # -gesture && person_type (x2)   (is the person pointing a girl or a boy ?) #TODO
+    # -gesture && person_type        (tell me if the standing person was a male)
+    # -gesture && person_type (x2)   (is the person pointing a girl or a boy ?)
     # RETURN : yes/no || person_type
     def crowd_person_gesture(self, f_arg=None):
         print('entity: ', 'crowd_person_gesture')
         for arg in f_arg:
             print(arg.get('entity'), ":", arg.get('value'))
 
-        # TODO : requete wonderland => get person with param(gesture)
+        if len(f_arg) == 2:
+            requestArg = {"peoplePose": f_arg[0].get('value')}
+            answer = self.wonderland_get_people_first_entity(requestArg)
+
+            if len(answer) > 0:
+                if answer.get('peopleGender') == self.personType.get(f_arg[1].get('value')):
+                    return "Yes, the " + f_arg[0].get('value') + " person was a " + f_arg[1].get('value')
+                else:
+                    return "No, the " + f_arg[0].get('value') + " person was not a " + f_arg[1].get('value')
+
+        elif len(f_arg) == 3:
+            requestArg = {"peoplePose": f_arg[0].get('value')}
+            answer = self.wonderland_get_people_first_entity(requestArg)
+
+            if len(answer) > 0:
+                if answer.get('peopleGender') == self.personType.get(f_arg[1].get('value')):
+                    return "The " + f_arg[0].get('value') + " person was a " + f_arg[1].get('value')
+                else:
+                    return "The " + f_arg[0].get('value') + " person was a " + f_arg[2].get('value')
 
 
     # ARGS
@@ -347,7 +453,7 @@ class RasaNLU():
 
     # ARGS
     # -object                        (To which category belong the melon?)
-    # -object && object              (Do the bowl and chocolate bar belong to the same category?)
+    # -object && object              (Do the bowl and chocolate bar belong to the same category?)f_arg[0].get('value')
     # RETURN : category || yes/no
     def object_category(self, f_arg=None):
         print('entity: ', 'object_category')
