@@ -383,7 +383,7 @@ class RasaNLU():
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
-            mmsg.actions.append(self.createActionNavigate('operator'))
+            msg.actions.append(self.createActionNavigate('operator'))
             msg.actions.append(self.createActionGive())
 
             return msg
