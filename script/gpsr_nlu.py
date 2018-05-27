@@ -237,7 +237,7 @@ class RasaNLU():
                 msg = ActionArrayMsg()
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
-                msg.actions.append(self.createActionFind('person'))
+                #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
                 msg.actions.append(self.createActionGuideOperator(f_arg[2].get('value')))
 
@@ -249,7 +249,7 @@ class RasaNLU():
                 msg = ActionArrayMsg()
 
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
-                msg.actions.append(self.createActionFind('person'))
+                #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.createActionGuideOperator(f_arg[2].get('value')))
 
@@ -402,8 +402,8 @@ class RasaNLU():
             msg = ActionArrayMsg()
 
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
-            msg.actions.append(self.createActionFindPerson())
-            msg.actions.append(self.createActionConfirm('Is your name '+f_arg[0].get('value')+'?'))
+            msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
+            #.actions.append(self.createActionConfirm('Is your name '+f_arg[0].get('value')+'?'))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
 
             return msg
@@ -413,8 +413,8 @@ class RasaNLU():
             msg = ActionArrayMsg()
 
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
-            msg.actions.append(self.createActionFindPerson())
-            msg.actions.append(self.createActionConfirm('Is your name '+f_arg[1].get('value')+'?'))
+            msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
+            #msg.actions.append(self.createActionConfirm('Is your name '+f_arg[1].get('value')+'?'))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
 
             return msg
@@ -434,9 +434,9 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
-                msg.actions.append(self.createActionAsk('name'))
+                msg.actions.append(self.createActionAsk('$name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('name'))
+                msg.actions.append(self.createActionSay('$name'))
 
                 return msg
 
@@ -446,9 +446,9 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
-                msg.actions.append(self.createActionAsk('name'))
+                msg.actions.append(self.createActionAsk('$name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('name'))
+                msg.actions.append(self.createActionSay('$name'))
 
                 return msg
 
