@@ -483,7 +483,21 @@ class RasaNLU():
             return msg
 
         elif len(f_arg) == 3:
-            if "on" in self.sentence.split():
+
+            if "go" in self.sentence.split():
+
+                msg = ActionArrayMsg()
+
+                msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
+                msg.actions.append(self.createActionFind(f_arg[1].get('value')))
+                msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
+                msg.actions.append(self.createActionNavigate(f_arg[2].get('value')))
+                msg.actions.append(self.createActionPlace(f_arg[2].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
+
+                return msg
+
+            elif "on" in self.sentence.split():
 
                 msg = ActionArrayMsg()
 
@@ -495,6 +509,8 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
+
+
 
             else:
 
@@ -547,7 +563,7 @@ class Order():
         print("Question init done.")
 
     def call_rasa(self, question):
-        self.rasa.sentence = question
+        self.rasa.sentence = question.lower()
         # return the JSON as a dict
         print("Calling rasa_nlu...")
         print('*' * 40)

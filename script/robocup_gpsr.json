@@ -1097,6 +1097,54 @@
             "entity": "room"
           }
         ]
+      },
+      {
+        "text": "Go to the dining table, locate the pringles, and place it on the bar",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 10,
+            "end": 22,
+            "value": "dining table",
+            "entity": "object"
+          },
+          {
+            "start": 35,
+            "end": 43,
+            "value": "pringles",
+            "entity": "object"
+          },
+          {
+            "start": 65,
+            "end": 68,
+            "value": "bar",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Go to the bookcase, look for the noodles, and put it on the center table",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "bookcase",
+            "entity": "object"
+          },
+          {
+            "start": 33,
+            "end": 40,
+            "value": "noodles",
+            "entity": "object"
+          },
+          {
+            "start": 60,
+            "end": 72,
+            "value": "center table",
+            "entity": "object"
+          }
+        ]
       }
     ]
   }
