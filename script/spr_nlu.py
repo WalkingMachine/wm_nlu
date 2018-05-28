@@ -77,6 +77,8 @@ class RasaNLU():
             "females": "girl",
             "female": "girl",
             "men": "boy",
+            "male": "boy",
+            "males": "boy",
             "boys": "boy",
             "boy": "boy",
             "man": "boy",
@@ -304,7 +306,7 @@ class RasaNLU():
 
     # ARGS
     # -object                        (how many girls ?)
-    # -object && gesture             (how many man standing ?)      #TODO train
+    # -object && gesture             (how many man standing ?)
     # -object && color               (how many boys wearing blue ?)
     # RETURN : count
     def crowd_count(self, f_arg=None):
@@ -318,6 +320,17 @@ class RasaNLU():
             count = 0
             if f_arg[0].get('value') == "people":
                 count = len(self.wonderland_get_people())
+
+            elif f_arg[0].get('value') == "adult" or f_arg[0].get('value') == "adults":
+                for people in self.wonderland_get_people():
+                    if people.get('peopleAge') >= 18:
+                        count += 1
+
+            elif f_arg[0].get('value') == "children" or f_arg[0].get('value') == "adults":
+                for people in self.wonderland_get_people():
+                    if people.get('peopleAge') < 18:
+                        count += 1
+
             else:
                 requestArg = {"peopleGender": self.personType.get(f_arg[0].get('value'))}
                 count = len(self.wonderland_get_people(requestArg))
