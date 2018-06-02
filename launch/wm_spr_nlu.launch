@@ -1,6 +1,0 @@
-<launch>
-
-    <node name="wm_nlu_node" pkg="wm_nlu" type="spr_nlu.py" output="screen" >
-    </node>
-
-</launch>

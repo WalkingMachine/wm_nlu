@@ -1,0 +1,8 @@
+<launch>
+
+    <node name="wm_nlu_node_gpsr" pkg="wm_nlu" type="gpsr_nlu.py" output="screen" >
+    </node>
+    <node name="wm_nlu_node_spr" pkg="wm_nlu" type="spr_nlu.py" output="screen" >
+    </node>
+
+</launch>
