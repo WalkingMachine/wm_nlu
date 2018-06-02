@@ -423,7 +423,7 @@ class RasaNLU():
                 msg.actions.append(self.createActionFindPerson())
                 msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('I found the person. And its name is $behavior/Answer/Name.'))
+                msg.actions.append(self.createActionSay('The name of the person is $behavior/Answer/Name.'))
 
                 return msg
 
@@ -435,7 +435,7 @@ class RasaNLU():
                 msg.actions.append(self.createActionFindPerson())
                 msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('I found the person. And its name is $behavior/Answer/Name.'))
+                msg.actions.append(self.createActionSay('The name of the person is $behavior/Answer/Name.'))
 
                 return msg
 
