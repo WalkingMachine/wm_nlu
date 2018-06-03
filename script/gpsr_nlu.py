@@ -150,25 +150,14 @@ class RasaNLU():
     # createActionAsk
     # Ask something
     #   arg : string question
-    def createActionAsk(self, arg):
+    def createActionAsk(self, arg, arg1):
         action = ActionMsg()
         action.Action = "Ask"
 
         action.args.append(arg)  # question to ask
+        action.args.append(arg1)  # Where to store the answer
 
         print(": Ask : " + arg)
-        return action
-
-    # createActionConfirm
-    # Confirm something
-    #   arg : string question
-    def createActionConfirm(self, arg):
-        action = ActionMsg()
-        action.Action = "Confirm"
-
-        action.args.append(arg)  # question to ask
-
-        print(": Confirm : " + arg)
         return action
 
     # createActionFollow
@@ -192,7 +181,7 @@ class RasaNLU():
         action.Action = "Count"
 
         action.args.append(arg) # object to count
-        action.args.append(value)
+        action.args.append(value) # Rosparam
 
         print(": Count " + arg)
         return action
@@ -361,9 +350,9 @@ class RasaNLU():
 
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
-            msg.actions.append(self.createActionCount(f_arg[0].get('value'), '$count'))
+            msg.actions.append(self.createActionCount(f_arg[0].get('value'), 'behavior/Count/NbObjects'))
             msg.actions.append(self.createActionNavigate('operator'))
-            msg.actions.append(self.createActionSay("There's $count " + f_arg[0].get('value')))
+            msg.actions.append(self.createActionSay("There's $behavior/Count/NbObjects " + f_arg[0].get('value')))
 
             return msg
 
@@ -403,7 +392,6 @@ class RasaNLU():
 
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
-            #.actions.append(self.createActionConfirm('Is your name '+f_arg[0].get('value')+'?'))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
 
             return msg
@@ -414,7 +402,6 @@ class RasaNLU():
 
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
-            #msg.actions.append(self.createActionConfirm('Is your name '+f_arg[1].get('value')+'?'))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
 
             return msg
@@ -434,9 +421,9 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
-                msg.actions.append(self.createActionAsk('$name'))
+                msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('$name'))
+                msg.actions.append(self.createActionSay('The name of the person is $behavior/Answer/Name.'))
 
                 return msg
 
@@ -446,9 +433,9 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
-                msg.actions.append(self.createActionAsk('$name'))
+                msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
                 msg.actions.append(self.createActionNavigate('operator'))
-                msg.actions.append(self.createActionSay('$name'))
+                msg.actions.append(self.createActionSay('The name of the person is $behavior/Answer/Name.'))
 
                 return msg
 
