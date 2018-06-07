@@ -53,7 +53,7 @@ class RasaNLU():
         # Train the model based on the robocup_spr.json file
         trainer.train(training_data)
         # Returns the directory the model is stored in
-        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default/')
+        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_gpsr/')
 
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
