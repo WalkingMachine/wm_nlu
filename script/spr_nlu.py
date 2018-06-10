@@ -683,27 +683,36 @@ class Question():
 
     def handle_answer_question(self, req):
         print("start wm_nlu")
-        question = str(req.str.data)
-        q = PredefinedQuestion()
-        rospack = rospkg.RosPack()
-        q.loadQuestions(rospack.get_path('wm_nlu')+"/script/Questions.xml")
-        q.callback(question)
-        answer = ""
-        # QUESTIONS PREDEFINIES
-        if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
-            print('*' * 40)
-            print('Q :', question)
-            answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
-            print('A :', q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)])
+        try:
+            question = str(req.str.data)
+            q = PredefinedQuestion()
+            rospack = rospkg.RosPack()
+            q.loadQuestions(rospack.get_path('wm_nlu')+"/script/Questions.xml")
+            q.callback(question)
+            answer = ""
+            # QUESTIONS PREDEFINIES
+            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
+                print('*' * 40)
+                print('Q :', question)
+                answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
+                print('A :', q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)])
 
-        # QUESTIONS CROWDS, PEOPLE, OBJECTS
-        else:
-            answer = self.call_rasa(question.decode('utf-8'))
-            print('*' * 40)
-            print('Q :', question)
-            print('A :', answer)
+            # QUESTIONS CROWDS, PEOPLE, OBJECTS
+            else:
+                answer = self.call_rasa(question.decode('utf-8'))
+                print('*' * 40)
+                print('Q :', question)
+                print('A :', answer)
 
-        return AnswerQuestionResponse(String(answer))
+            if len(answer) > 0:
+                return AnswerQuestionResponse(String(answer))
+            else:
+                return AnswerQuestionResponse(String("I'm sorry, I didn't understand the question"))
+        except:
+            return AnswerQuestionResponse(String("I'm sorry, I didn't understand the question"))
+
+
+
 
 
 
