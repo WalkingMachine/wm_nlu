@@ -522,11 +522,14 @@ class RasaNLU():
                 weight = 0
 
                 for object in answer:
-                    if int(object.get('entityWeight') or 0) > weight and object.get('entityName') == 'object':
+                    if object.get('entityWeight') > weight:
                         heaviestObject = object.get('entityClass')
                         weight = object.get('entityWeight')
 
-                return "The heaviest " + object1 + " is the " + heaviestObject
+                if len(heaviestObject) > 0:
+                    return "The heaviest " + object1 + " is the " + heaviestObject
+                else:
+                    return "I don't know which " + object1 + " is the heaviest"
 
             if len(f_arg) == 2:
                 arg = {'entityCategory' : object1}
