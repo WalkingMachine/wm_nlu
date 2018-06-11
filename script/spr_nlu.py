@@ -649,11 +649,6 @@ class RasaNLU():
                 return "The lightest " + object1 + " is the " + lightestObject
 
             if len(f_arg) == 3:
-                if answer1.get('entityWeight') > answer2.get('entityWeight'):
-                    return "The " + object1 + " is heavier than the " + object2
-                else:
-                    return "The " + object2 + " is heavier than the " + object1
-            if len(f_arg) == 3:
                 if answer1.get('entityWeight') < answer2.get('entityWeight'):
                     return "The " + object1 + " is lighter than the " + object2
                 else:
