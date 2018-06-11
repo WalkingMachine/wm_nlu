@@ -247,6 +247,8 @@ class RasaNLU():
         if len(f_arg) == 1:
             #if f_arg[0].get('entity') == "object":
             arg = {"entityClass": f_arg[0].get('value')}
+            if f_arg[0].get('value') == "object" or f_arg[0].get('value') == "objects":
+                arg = None
             if len(self.wonderland_get_entity(arg)) != 0:
                 sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
                 return sentence
@@ -258,7 +260,8 @@ class RasaNLU():
         elif len(f_arg) == 2:
             #if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
             arg = {"entityClass": f_arg[0].get('value')}
-
+            if f_arg[0].get('value') == "object" or f_arg[0].get('value') == "objects":
+                arg = None
             # requete wonderland => trouver id du container
             request_arg = {"entityClass": f_arg[1].get('value')}
             answer = self.wonderland_get_first_entity(request_arg)
