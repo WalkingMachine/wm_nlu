@@ -436,7 +436,20 @@
       {
         "text": "Tell me how many apple there are on the dining table",
         "intent": "count_object",
-        "entities": []
+        "entities": [
+          {
+            "start": 17,
+            "end": 22,
+            "value": "apple",
+            "entity": "object"
+          },
+          {
+            "start": 40,
+            "end": 52,
+            "value": "dining table",
+            "entity": "object"
+          }
+        ]
       },
       {
         "text": "Tell me how many bowl there are on the coffe table",
@@ -1142,6 +1155,120 @@
             "start": 60,
             "end": 72,
             "value": "center table",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Go to the bedroom, locate a person, and say the time",
+        "intent": "say_something",
+        "entities": [
+          {
+            "start": 10,
+            "end": 17,
+            "value": "bedroom",
+            "entity": "room"
+          }
+        ]
+      },
+      {
+        "text": "Go to the desk, find the manju, and give it to me",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 10,
+            "end": 14,
+            "value": "desk",
+            "entity": "object"
+          },
+          {
+            "start": 25,
+            "end": 30,
+            "value": "manju",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Bring to Skyler at the dining table the coke from the desk",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 23,
+            "end": 35,
+            "value": "dining table",
+            "entity": "object"
+          },
+          {
+            "start": 40,
+            "end": 44,
+            "value": "coke",
+            "entity": "object"
+          },
+          {
+            "start": 54,
+            "end": 58,
+            "value": "desk",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Grasp the pringles from the sink and bring it to Samuel at the dining table",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "pringles",
+            "entity": "object"
+          },
+          {
+            "start": 28,
+            "end": 32,
+            "value": "sink",
+            "entity": "object"
+          },
+          {
+            "start": 49,
+            "end": 55,
+            "value": "Samuel",
+            "entity": "name"
+          },
+          {
+            "start": 63,
+            "end": 75,
+            "value": "dining table",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Tale the apple from the desk and bring it to James at the counter",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "object"
+          },
+          {
+            "start": 24,
+            "end": 28,
+            "value": "desk",
+            "entity": "object"
+          },
+          {
+            "start": 45,
+            "end": 50,
+            "value": "James",
+            "entity": "name"
+          },
+          {
+            "start": 58,
+            "end": 65,
+            "value": "counter",
             "entity": "object"
           }
         ]
