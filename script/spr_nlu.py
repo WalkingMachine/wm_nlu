@@ -97,7 +97,7 @@ class RasaNLU():
         # Train the model based on the robocup_spr.json file
         trainer.train(training_data)
         # Returns the directory the model is stored in
-        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default/')
+        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_spr/')
 
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
@@ -247,6 +247,8 @@ class RasaNLU():
         if len(f_arg) == 1:
             #if f_arg[0].get('entity') == "object":
             arg = {"entityClass": f_arg[0].get('value')}
+            if f_arg[0].get('value') == "object" or f_arg[0].get('value') == "objects":
+                arg = None
             if len(self.wonderland_get_entity(arg)) != 0:
                 sentence = "There's " + str(len(self.wonderland_get_entity(arg))) + " " + f_arg[0].get('value')
                 return sentence
@@ -258,7 +260,8 @@ class RasaNLU():
         elif len(f_arg) == 2:
             #if f_arg[0].get('entity') == "object" and f_arg[0].get('entity') == "object":
             arg = {"entityClass": f_arg[0].get('value')}
-
+            if f_arg[0].get('value') == "object" or f_arg[0].get('value') == "objects":
+                arg = None
             # requete wonderland => trouver id du container
             request_arg = {"entityClass": f_arg[1].get('value')}
             answer = self.wonderland_get_first_entity(request_arg)
@@ -522,11 +525,14 @@ class RasaNLU():
                 weight = 0
 
                 for object in answer:
-                    if int(object.get('entityWeight') or 0) > weight and object.get('entityName') == 'object':
+                    if object.get('entityWeight') > weight:
                         heaviestObject = object.get('entityClass')
                         weight = object.get('entityWeight')
 
-                return "The heaviest " + object1 + " is the " + heaviestObject
+                if len(heaviestObject) > 0:
+                    return "The heaviest " + object1 + " is the " + heaviestObject
+                else:
+                    return "I don't know which " + object1 + " is the heaviest"
 
             if len(f_arg) == 2:
                 arg = {'entityCategory' : object1}
@@ -643,11 +649,6 @@ class RasaNLU():
                 return "The lightest " + object1 + " is the " + lightestObject
 
             if len(f_arg) == 3:
-                if answer1.get('entityWeight') > answer2.get('entityWeight'):
-                    return "The " + object1 + " is heavier than the " + object2
-                else:
-                    return "The " + object2 + " is heavier than the " + object1
-            if len(f_arg) == 3:
                 if answer1.get('entityWeight') < answer2.get('entityWeight'):
                     return "The " + object1 + " is lighter than the " + object2
                 else:
@@ -683,27 +684,36 @@ class Question():
 
     def handle_answer_question(self, req):
         print("start wm_nlu")
-        question = str(req.str.data)
-        q = PredefinedQuestion()
-        rospack = rospkg.RosPack()
-        q.loadQuestions(rospack.get_path('wm_nlu')+"/script/Questions.xml")
-        q.callback(question)
-        answer = ""
-        # QUESTIONS PREDEFINIES
-        if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
-            print('*' * 40)
-            print('Q :', question)
-            answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
-            print('A :', q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)])
+        try:
+            question = str(req.str.data)
+            q = PredefinedQuestion()
+            rospack = rospkg.RosPack()
+            q.loadQuestions(rospack.get_path('wm_nlu')+"/script/Questions.xml")
+            q.callback(question)
+            answer = ""
+            # QUESTIONS PREDEFINIES
+            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
+                print('*' * 40)
+                print('Q :', question)
+                answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
+                print('A :', q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)])
 
-        # QUESTIONS CROWDS, PEOPLE, OBJECTS
-        else:
-            answer = self.call_rasa(question.decode('utf-8'))
-            print('*' * 40)
-            print('Q :', question)
-            print('A :', answer)
+            # QUESTIONS CROWDS, PEOPLE, OBJECTS
+            else:
+                answer = self.call_rasa(question.decode('utf-8'))
+                print('*' * 40)
+                print('Q :', question)
+                print('A :', answer)
 
-        return AnswerQuestionResponse(String(answer))
+            if len(answer) > 0:
+                return AnswerQuestionResponse(String(answer))
+            else:
+                return AnswerQuestionResponse(String("I'm sorry, I didn't understand the question"))
+        except:
+            return AnswerQuestionResponse(String("I'm sorry, I didn't understand the question"))
+
+
+
 
 
 

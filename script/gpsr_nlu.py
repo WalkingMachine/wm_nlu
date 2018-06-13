@@ -53,7 +53,7 @@ class RasaNLU():
         # Train the model based on the robocup_spr.json file
         trainer.train(training_data)
         # Returns the directory the model is stored in
-        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default/')
+        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_gpsr/')
 
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
@@ -225,6 +225,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find " + f_arg[1].get('value') + " and guide him to the " + f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
@@ -237,6 +238,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " find " + f_arg[0].get('value') + " and guide him to the " + f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
@@ -305,6 +307,7 @@ class RasaNLU():
         if len(f_arg) == 1:
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find a person, answer a question and come back here"))
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson())
             msg.actions.append(self.answerAction)
@@ -316,6 +319,7 @@ class RasaNLU():
             if f_arg[0].get('entity') == 'name':
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " find "+f_arg[0].get('value')+", answer a question and come back here"))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.answerAction)
@@ -328,6 +332,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find " + f_arg[1].get('value') + ", answer a question and come back here"))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
                 msg.actions.append(self.answerAction)
@@ -348,6 +353,7 @@ class RasaNLU():
         if len(f_arg) == 2:
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " to count the number of " + f_arg[0].get('value') + " and come back here to give you the answer"))
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionCount(f_arg[0].get('value'), 'behavior/Count/NbObjects'))
@@ -369,6 +375,7 @@ class RasaNLU():
 
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " to pick the " + f_arg[0].get('value') + " and come back here to give it to you"))
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
@@ -390,6 +397,7 @@ class RasaNLU():
 
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " to find " + f_arg[0].get('value') + " and follow him"))
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
@@ -400,6 +408,7 @@ class RasaNLU():
 
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to find " + f_arg[0].get('value') + " and follow him"))
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
@@ -419,6 +428,7 @@ class RasaNLU():
             if f_arg[0].get('entity') == 'room':
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to find the name of the person"))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
                 msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
@@ -431,6 +441,7 @@ class RasaNLU():
             elif f_arg[0].get('entity') == 'object':
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will ask the name of the person near the " + f_arg[0].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
                 msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
@@ -461,6 +472,7 @@ class RasaNLU():
 
             msg = ActionArrayMsg()
 
+            msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the "+f_arg[1].get('value')+" and bring it here"))
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
@@ -475,6 +487,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and place it in the "+f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[1].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
@@ -488,6 +501,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and place it on the " + f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[0].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
@@ -503,6 +517,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will pick " + f_arg[1].get('value') + " in the " + f_arg[2].get('value') + " and give it to " + f_arg[0].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[2].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[1].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
@@ -517,6 +532,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will pick " + f_arg[2].get('value') + " in the " + f_arg[3].get('value') + " and give it to " +f_arg[0].get('value')+ " in the " +f_arg[1].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[3].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[2].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[2].get('value')))
@@ -530,6 +546,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
+                msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and give it to " +f_arg[2].get('value') + " in the " + f_arg[3].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[0].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
