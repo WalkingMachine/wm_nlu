@@ -70,18 +70,18 @@ class RasaNLU():
         }
 
         self.personType = {
-            "girl": "girl",
-            "girls": "girl",
-            "women": "girl",
-            "woman": "girl",
-            "females": "girl",
-            "female": "girl",
-            "men": "boy",
-            "male": "boy",
-            "males": "boy",
-            "boys": "boy",
-            "boy": "boy",
-            "man": "boy",
+            "girl": "female",
+            "girls": "female",
+            "women": "female",
+            "woman": "female",
+            "females": "female",
+            "female": "female",
+            "men": "male",
+            "male": "male",
+            "males": "male",
+            "boys": "male",
+            "boy": "male",
+            "man": "male",
             "people": ""
         }
 
@@ -308,9 +308,9 @@ class RasaNLU():
 
 
     # ARGS
-    # -object                        (how many girls ?)
+    # -object                        (how many females ?)
     # -object && gesture             (how many man standing ?)
-    # -object && color               (how many boys wearing blue ?)
+    # -object && color               (how many males wearing blue ?)
     # RETURN : count
     def crowd_count(self, f_arg=None):
         print('entity: ','crowd_count')
@@ -394,7 +394,7 @@ class RasaNLU():
 
     # ARGS
     # -gesture && person_type        (tell me if the standing person was a male)
-    # -gesture && person_type (x2)   (is the person pointing a girl or a boy ?)
+    # -gesture && person_type (x2)   (is the person pointing a female or a male ?)
     # RETURN : yes/no || person_type
     def crowd_person_gesture(self, f_arg=None):
         print('entity: ', 'crowd_person_gesture')
