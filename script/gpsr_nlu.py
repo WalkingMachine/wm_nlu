@@ -133,6 +133,7 @@ class RasaNLU():
             action.args.append(arg)  # person name
             print(": Give the object to " + arg)
         else:
+            action.args.append("")  # person name
             print(": Give the object to the operator")
         return action
 
