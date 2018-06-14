@@ -97,10 +97,10 @@ class RasaNLU():
 
         return action
 
-    # createActionGuideOperator
+    # createActionGuidePerson
     # Guide operator to room
     #   arg : string room
-    def createActionGuideOperator(self, arg):
+    def createActionGuidePerson(self, arg):
         action = ActionMsg()
         action.Action = "Guide"
 
@@ -229,7 +229,8 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
-                msg.actions.append(self.createActionGuideOperator(f_arg[2].get('value')))
+                msg.actions.append(self.createActionGuidePerson(f_arg[2].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
 
@@ -242,7 +243,8 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 #msg.actions.append(self.createActionFind('person'))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
-                msg.actions.append(self.createActionGuideOperator(f_arg[2].get('value')))
+                msg.actions.append(self.createActionGuidePerson(f_arg[2].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
 
@@ -401,6 +403,7 @@ class RasaNLU():
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
+            msg.actions.append(self.createActionNavigate('operator'))
 
             return msg
 
@@ -412,6 +415,7 @@ class RasaNLU():
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
+            msg.actions.append(self.createActionNavigate('operator'))
 
             return msg
 
@@ -557,13 +561,15 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will pick the " + f_arg[1].get('value') + " from the " + f_arg[2].get('value') + " and give it to " + f_arg[0].get('value')))
+
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[1].get('value') + " in the " + f_arg[2].get('value') + " and give it to " + f_arg[0].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[2].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[1].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.createActionGive())
+                msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
 
@@ -579,12 +585,14 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.createActionGive())
+                msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
 
             elif f_arg[2].get('entity') == 'name':
 
                 msg = ActionArrayMsg()
+
 
                 msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " from the " + f_arg[1].get('value') + ", move to the " + f_arg[3].get('value')+ " and give it to " +f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
@@ -593,6 +601,7 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate(f_arg[3].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[2].get('value')))
                 msg.actions.append(self.createActionGive())
+                msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
 
