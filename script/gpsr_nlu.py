@@ -357,7 +357,7 @@ class RasaNLU():
 
             msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " to count the number of " + f_arg[0].get('value') + " and come back here to give you the answer"))
             msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
-            msg.actions.append(self.createActionFind(f_arg[0].get('value')))
+            #msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionCount(f_arg[0].get('value'), 'behavior/Count/NbObjects'))
             msg.actions.append(self.createActionNavigate('operator'))
             msg.actions.append(self.createActionSay("There's $behavior/Count/NbObjects " + f_arg[0].get('value')))
@@ -411,7 +411,7 @@ class RasaNLU():
 
             msg = ActionArrayMsg()
 
-            msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to find " + f_arg[0].get('value') + " and follow him"))
+            msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to find " + f_arg[1].get('value') + " and follow him"))
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
             msg.actions.append(self.createActionFollow(f_arg[1].get('value')))
@@ -432,7 +432,7 @@ class RasaNLU():
             if f_arg[0].get('entity') == 'room':
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to find the name of the person"))
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " to ask the name of the person"))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson())
                 msg.actions.append(self.createActionAsk('What is your name', 'behavior/Answer/Name'))
@@ -472,12 +472,12 @@ class RasaNLU():
 
         print('*' * 40)
 
-        if len(f_arg) == 2:
+        if len(f_arg) == 1:
 
             msg = ActionArrayMsg()
 
-            msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the "+f_arg[1].get('value')+" and bring it here"))
-            msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
+            msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " and bring it here"))
+            msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFind(f_arg[0].get('value')))
             msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
             msg.actions.append(self.createActionNavigate('operator'))
@@ -485,13 +485,55 @@ class RasaNLU():
 
             return msg
 
+
+        if len(f_arg) == 2:
+
+            if "go" in self.sentence.split() or "navigate" in self.sentence.split():
+                msg = ActionArrayMsg()
+
+                msg.actions.append(self.createActionSay(
+                    "I will pick the " + f_arg[1].get('value') + " from the " + f_arg[0].get(
+                        'value') + " and bring it here"))
+                msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
+                msg.actions.append(self.createActionFind(f_arg[1].get('value')))
+                msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
+                msg.actions.append(self.createActionGive())
+
+                return msg
+
+            elif "place" in self.sentence.split() or "put" in self.sentence.split():
+                msg = ActionArrayMsg()
+
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " and place it on the " + f_arg[1].get('value')))
+                msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
+                msg.actions.append(self.createActionFind(f_arg[0].get('value')))
+                msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
+                msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
+                msg.actions.append(self.createActionPlace(f_arg[1].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
+
+                return msg
+
+            else:
+                msg = ActionArrayMsg()
+
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " from the "+f_arg[1].get('value')+" and bring it here"))
+                msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
+                msg.actions.append(self.createActionFind(f_arg[0].get('value')))
+                msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
+                msg.actions.append(self.createActionNavigate('operator'))
+                msg.actions.append(self.createActionGive())
+
+                return msg
+
         elif len(f_arg) == 3:
 
-            if "go" in self.sentence.split():
+            if "go" in self.sentence.split() or "navigate" in self.sentence.split():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and place it in the "+f_arg[2].get('value')))
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[1].get('value') + " from the " + f_arg[0].get('value') + " and place it on the "+f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[1].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[1].get('value')))
@@ -501,11 +543,11 @@ class RasaNLU():
 
                 return msg
 
-            elif "on" in self.sentence.split():
+            elif "on" in self.sentence.split() or "from" in self.sentence.split():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will pick " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and place it on the " + f_arg[2].get('value')))
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " from the " + f_arg[1].get('value') + " and place it on the " + f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[0].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
@@ -515,11 +557,10 @@ class RasaNLU():
 
                 return msg
 
-
-
             else:
 
                 msg = ActionArrayMsg()
+
 
                 msg.actions.append(self.createActionSay("I will pick the " + f_arg[1].get('value') + " in the " + f_arg[2].get('value') + " and give it to " + f_arg[0].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[2].get('value')))
@@ -537,7 +578,7 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will pick the " + f_arg[2].get('value') + " in the " + f_arg[3].get('value') + " and give it to " +f_arg[0].get('value')+ " in the " +f_arg[1].get('value')))
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[2].get('value') + " from the " + f_arg[3].get('value') + ", move to the " + f_arg[1].get('value')+ " and give it to " +f_arg[0].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[3].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[2].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[2].get('value')))
@@ -552,7 +593,8 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " in the " + f_arg[1].get('value') + " and give it to " +f_arg[2].get('value') + " in the " + f_arg[3].get('value')))
+
+                msg.actions.append(self.createActionSay("I will pick the " + f_arg[0].get('value') + " from the " + f_arg[1].get('value') + ", move to the " + f_arg[3].get('value')+ " and give it to " +f_arg[2].get('value')))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFind(f_arg[0].get('value')))
                 msg.actions.append(self.createActionPickObject(f_arg[0].get('value')))
