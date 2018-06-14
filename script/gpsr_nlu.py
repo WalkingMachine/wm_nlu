@@ -93,6 +93,7 @@ class RasaNLU():
             action.args.append(arg)  # operator name
             print(": Find " + arg + " in the room")
         else:
+            action.args.append("")
             print(": Find operator in the room")
 
         return action
