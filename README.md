@@ -15,13 +15,13 @@ python -m spacy link en_core_web_md en
 
 ## How to test wm_nlu
 * Follow the installation process
-* git clone http://github.com/walkingmachine/wonderland in your ROS workspace
-* in wonderland repo : git checkout robocup2018
+* `git clone http://github.com/walkingmachine/wonderland` in your ROS workspace
+* in wonderland repo : `git checkout robocup2018`
 * catkin_make your workspace
-* start wonderland : python manage.py runserver
-* rosrun wm_nlu spr_nlu  
+* start wonderland : `python manage.py runserver`
+* `rosrun wm_nlu spr_nlu`
 or  
-* rosrun wm_nlu gpsr_nlu
+* `rosrun wm_nlu gpsr_nlu`
 
 ## Status
 
