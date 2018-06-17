@@ -11,6 +11,16 @@ ROS wrapper for rasa nlu. Mainly used for SPR robocup@home challenge.
 ## Prepare the data
 * https://rasahq.github.io/rasa-nlu-trainer/
 
+## How to test wm_nlu
+* Follow the installation process
+* git clone http://github.com/walkingmachine/wonderland in your ROS workspace
+* in wonderland repo : git checkout robocup2018
+* catkin_make your workspace
+* start wonderland : python manage.py runserver
+* rosrun wm_nlu spr_nlu  
+or  
+* rosrun wm_nlu gpsr_nlu
+
 ## Status
 
 Currently, wm_nlu will query rasa_nlu to get the sentences entities. It will then query [wonderland](https://github.com/walkingmachine/wonderland) and return the answer to the answer.
