@@ -5,6 +5,7 @@ ROS wrapper for rasa nlu. Mainly used for SPR robocup@home challenge.
 ## Installation
 
 ```bash
+python -m pip install sklearn_crfsuite sklearn --user
 python -m pip install testresources rasa_nlu spacy --user
 python -m spacy download en_core_web_md
 python -m spacy link en_core_web_md en
