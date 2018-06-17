@@ -2,7 +2,7 @@
 <questions>
   <question>
     <q>Who's the most handsome person in Canada?</q>
-    <a>I that Justin Trudeau is very handsome</a>
+    <a>I know that Justin Trudeau is very handsome</a>
   </question>
   <question>
     <q>How many time zones are there in Canada?</q>
@@ -126,7 +126,7 @@
   </question>
   <question>
     <q>What does CAPTCHA stands for?</q>
-    <a>CAPTCHA is an acronym for Completely Automated Public Turing test to tell Computers and Humans Apart</a>
+    <a>CAPTCHA is an acronym for Completely Automated Public Turing test to tell Computers and Humans Apart.</a>
   </question>
   <question>
     <q>What was the first computer bug?</q>
@@ -145,7 +145,7 @@
     <a>A robot sketch made by Leonardo DaVinci.</a>
   </question>
   <question>
-    <q>What was the first computer in pass the Turing test?</q>
+    <q>What was the first computer to pass the Turing test?</q>
     <a>Some people think it was IBM Watson, but it was Eugene, a computer designed at England's University of Reading.</a>
   </question>
   <question>
@@ -157,7 +157,7 @@
     <a>It is when you need to load an AI with enough knowledge to start learning.</a>
   </question>
   <question>
-    <q>Why is Elon Musk is worried about AI's impact on humanity?</q>
+    <q>Why is Elon Musk worried about AI's impact on humanity?</q>
     <a>I don't know. He should worry more about the people's impact on humanity.</a>
   </question>
   <question>
