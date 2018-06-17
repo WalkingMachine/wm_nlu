@@ -20,9 +20,9 @@ python -m spacy link en_core_web_md en
 * in wonderland repo : `git checkout robocup2018`
 * catkin_make your workspace
 * start wonderland : `python manage.py runserver`
-* `rosrun wm_nlu spr_nlu`
+* `rosrun wm_nlu spr_nlu.py`
 or  
-* `rosrun wm_nlu gpsr_nlu`
+* `rosrun wm_nlu gpsr_nlu.py`
 
 ## Status
 
