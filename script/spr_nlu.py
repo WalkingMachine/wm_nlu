@@ -694,7 +694,7 @@ class Question():
             # QUESTIONS PREDEFINIES
             #print q.WEIGHT
             print q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)]
-            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] *100 / len(question.split()) > 70:
+            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] *100 / len(question.split()) > 75:
                 print('*' * 40)
                 print('Q :', question)
                 answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
