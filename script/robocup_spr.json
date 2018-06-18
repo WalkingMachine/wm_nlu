@@ -744,6 +744,90 @@
             "entity": "people_type"
           }
         ]
+      },
+      {
+        "text": "Was the person standing a boy or girl",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 15,
+            "end": 23,
+            "value": "standing",
+            "entity": "gesture"
+          },
+          {
+            "start": 26,
+            "end": 29,
+            "value": "boy",
+            "entity": "people_type"
+          },
+          {
+            "start": 33,
+            "end": 37,
+            "value": "girl",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Tell me if the person pointing to the left was a woman",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 22,
+            "end": 42,
+            "value": "pointing to the left",
+            "entity": "gesture"
+          },
+          {
+            "start": 49,
+            "end": 54,
+            "value": "woman",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Tell me if the person pointing to the right was a men",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 22,
+            "end": 43,
+            "value": "pointing to the right",
+            "entity": "gesture"
+          },
+          {
+            "start": 50,
+            "end": 53,
+            "value": "men",
+            "entity": "people_type"
+          }
+        ]
+      },
+      {
+        "text": "Was the person lying down a male or female",
+        "intent": "crowd_person_gesture",
+        "entities": [
+          {
+            "start": 15,
+            "end": 25,
+            "value": "lying down",
+            "entity": "gesture"
+          },
+          {
+            "start": 28,
+            "end": 32,
+            "value": "male",
+            "entity": "people_type"
+          },
+          {
+            "start": 36,
+            "end": 42,
+            "value": "female",
+            "entity": "people_type"
+          }
+        ]
       }
     ]
   }

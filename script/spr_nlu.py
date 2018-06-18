@@ -692,7 +692,9 @@ class Question():
             q.callback(question)
             answer = ""
             # QUESTIONS PREDEFINIES
-            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] / len(question.split()) * 100 > 75:
+            #print q.WEIGHT
+            print q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)]
+            if q.WEIGHT[max(q.WEIGHT, key=q.WEIGHT.get)] *100 / len(question.split()) > 70:
                 print('*' * 40)
                 print('Q :', question)
                 answer =  q.QUESTIONS[max(q.WEIGHT, key=q.WEIGHT.get)]
