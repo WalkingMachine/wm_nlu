@@ -494,7 +494,7 @@ class RasaNLU():
 
                 msg.actions.append(self.createActionSay(
                     "I will pick the " + acorrect(f_arg[1].get('value')) + " from the " + acorrect(f_arg[0].get(
-                        'value')) + " and bring it here")
+                        'value')) + " and bring it here"))
                 msg.actions.append(self.createActionNavigate(acorrect(f_arg[0].get('value'))))
                 msg.actions.append(self.createActionFind(acorrect(f_arg[1].get('value'))))
                 msg.actions.append(self.createActionPickObject(acorrect(f_arg[1].get('value'))))
@@ -606,7 +606,7 @@ class RasaNLU():
 
                 return msg
 
-	def acorrect(heardWord):
+    def acorrect(heardWord):
         phonemesHeard==commands.getoutput("espeak -x "+heardWord)
         possibleWords=["bag","cloth","scrubby","sponge","basket","tray","chocolate drink","coke","grape juice","orange juice","sprite","cereal","noodles",
                 "sausages", "apple","orange","paprika","crackers","potato chips","pringles"   ,   "additional","cleaning stuff","drinks","food","snacks",
