@@ -223,7 +223,7 @@ class RasaNLU():
         print('*' * 40)
 
         if len(f_arg) == 3:
-            if self.acorrect(f_arg[0].get('entity')) == 'object':
+            if f_arg[0].get('entity') == 'object':
 
                 msg = ActionArrayMsg()
 
@@ -239,7 +239,7 @@ class RasaNLU():
                 return msg
 
 
-            if self.acorrect(f_arg[0].get('entity')) == 'name':
+            if f_arg[0].get('entity') == 'name':
 
                 msg = ActionArrayMsg()
 
@@ -325,7 +325,7 @@ class RasaNLU():
             return msg
 
         elif len(f_arg) >= 2:
-            if self.acorrect(f_arg[0].get('entity')) == 'name':
+            if f_arg[0].get('entity') == 'name':
                 msg = ActionArrayMsg()
 
                 acorrect1 = self.acorrect(f_arg[1].get('value'))
@@ -338,7 +338,7 @@ class RasaNLU():
                 return msg
 
 
-            if self.acorrect(f_arg[0].get('entity')) == 'room':
+            if f_arg[0].get('entity') == 'room':
 
                 msg = ActionArrayMsg()
 
@@ -445,7 +445,7 @@ class RasaNLU():
         print('*'*40)
 
         if len(f_arg) == 1:
-            if self.acorrect(f_arg[0].get('entity')) == 'room':
+            if f_arg[0].get('entity') == 'room':
                 msg = ActionArrayMsg()
 
                 acorrect0 = self.acorrect(f_arg[0].get('value'))
@@ -460,7 +460,7 @@ class RasaNLU():
                 return msg
 
 
-            elif self.acorrect(f_arg[0].get('entity')) == 'object':
+            elif f_arg[0].get('entity') == 'object':
                 msg = ActionArrayMsg()
 
                 acorrect0 = self.acorrect(f_arg[0].get('value'))
@@ -624,14 +624,14 @@ class RasaNLU():
                 msg.actions.append(self.createActionNavigate(acorrect3))
                 msg.actions.append(self.createActionFind(acorrect2))
                 msg.actions.append(self.createActionPickObject(acorrect2))
-                
+
                 msg.actions.append(self.createActionNavigate(acorrect1))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.createActionGive())
                 msg.actions.append(self.createActionNavigate('operator'))
 
                 return msg
- 
+
             elif f_arg[2].get('entity') == 'name':
 
                 msg = ActionArrayMsg()
@@ -651,12 +651,15 @@ class RasaNLU():
                 return msg
 
     def acorrect(heardWord):
-        phonemesHeard==commands.getoutput("espeak -x "+heardWord)
-        possibleWords=["bag","cloth","scrubby","sponge","basket","tray","chocolate drink","coke","grape juice","orange juice","sprite","cereal","noodles",
-                "sausages", "apple","orange","paprika","crackers","potato chips","pringles"   ,   "additional","cleaning stuff","drinks","food","snacks",
-                "entrance","corridor","kitchen","storage table","sink","dishwasher","counter","ng room","dining table","side table","bedroom","bed","desk",
-                "living room","end table","couch","bookcase"]
-        
+        phonemesHeard = commands.getoutput("espeak -x " + heardWord)
+        possibleWords = ["bag", "cloth", "scrubby", "sponge", "basket", "tray", "chocolate drink", "coke",
+                         "grape juice", "orange juice", "sprite", "cereal", "noodles",
+                         "sausages", "apple", "orange", "paprika", "crackers", "potato chips", "pringles", "additional",
+                         "cleaning stuff", "drinks", "food", "snacks",
+                         "entrance", "corridor", "kitchen", "storage table", "sink", "dishwasher", "counter", "ng room",
+                         "dining table", "side table", "bedroom", "bed", "desk",
+                         "living room", "end table", "couch", "bookcase"]
+
         phonemesToWord={}
         phonemesPossible=[]
         for x in possibleWords:
