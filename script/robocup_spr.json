@@ -828,6 +828,24 @@
             "entity": "people_type"
           }
         ]
+      },
+      {
+        "text": "Which is the lightest cutlery",
+        "intent": "object_adjective",
+        "entities": [
+          {
+            "start": 13,
+            "end": 21,
+            "value": "lightest",
+            "entity": "adjective"
+          },
+          {
+            "start": 22,
+            "end": 29,
+            "value": "cutlery",
+            "entity": "object"
+          }
+        ]
       }
     ]
   }
