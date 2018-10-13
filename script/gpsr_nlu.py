@@ -309,7 +309,10 @@ class RasaNLU():
         if len(f_arg) == 1:
             msg = ActionArrayMsg()
 
-            msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find a person, answer a question and come back here"))
+            if sentenceToSay == "SPR":
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find a person, say something and come back here"))
+            else:
+                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find a person, answer a question and come back here"))
             msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
             msg.actions.append(self.createActionFindPerson())
             msg.actions.append(self.answerAction)
@@ -321,7 +324,10 @@ class RasaNLU():
             if f_arg[0].get('entity') == 'name':
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " find "+f_arg[0].get('value')+", answer a question and come back here"))
+                if sentenceToSay == "SPR":
+                    msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " find "+f_arg[0].get('value')+", answer a question and come back here"))
+                else:
+                    msg.actions.append(self.createActionSay("I will go to the " + f_arg[1].get('value') + " find "+f_arg[0].get('value')+", say something and come back here"))
                 msg.actions.append(self.createActionNavigate(f_arg[1].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[0].get('value')))
                 msg.actions.append(self.answerAction)
@@ -334,7 +340,11 @@ class RasaNLU():
 
                 msg = ActionArrayMsg()
 
-                msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find " + f_arg[1].get('value') + ", answer a question and come back here"))
+                if sentenceToSay == "SPR":
+                    msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find " + f_arg[1].get('value') + ", answer a question and come back here"))
+                else:
+                    msg.actions.append(self.createActionSay("I will go to the " + f_arg[0].get('value') + " find " + f_arg[1].get('value') + ", say something and come back here"))
+
                 msg.actions.append(self.createActionNavigate(f_arg[0].get('value')))
                 msg.actions.append(self.createActionFindPerson(f_arg[1].get('value')))
                 msg.actions.append(self.answerAction)
