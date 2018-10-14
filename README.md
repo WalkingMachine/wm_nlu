@@ -1,8 +1,13 @@
 # wm_nlu
-ROS wrapper for rasa nlu. Mainly used for GPSR and SPR robocup@home challenge.  
+ROS wrapper for rasa nlu with datasets for GPSR and SPR robocup@home challenge.
+
+# Service
+* /gpsr_receive_action
+* /answer_question
 
 ## Installation
 
+### General
 ```bash
 pip install sklearn_crfsuite sklearn --user
 pip install testresources rasa_nlu spacy --user
@@ -10,24 +15,20 @@ pip install -U scikit-learn scipy sklearn-crfsuite --user
 python -m spacy download en_core_web_md
 python -m spacy link en_core_web_md en
 ```
+### For the SPR challenge
+* Wonderland is needed to run the SPR challenge
+* Follow https://github.com/walkingmachine/wonderland#installation for the installation
 
 ## Prepare the data
-* https://rasahq.github.io/rasa-nlu-trainer/
+* 2 datasets are used, robocup_gpsr.json and robocup_spr.json
+* If you want to modify the current dataset, you can use the online tool https://rasahq.github.io/rasa-nlu-trainer/
 
 ## How to test wm_nlu
-* Follow the installation process
-* `git clone http://github.com/walkingmachine/wonderland` in your ROS workspace
-* in wonderland repo : `git checkout robocup2018`
-* catkin_make your workspace
-* start wonderland : `python manage.py runserver`
-* `rosrun wm_nlu spr_nlu.py`
-or  
-* `rosrun wm_nlu gpsr_nlu.py`
-
-## Status
-
-Currently, wm_nlu will query rasa_nlu to get the sentences entities. It will then query [wonderland](https://github.com/walkingmachine/wonderland) and return the answer to the answer.
-
-## Future changes
-
-Once the first version will be working, the wonderland part will be seperated from wm_nlu. Another package will be in charged of converting the ouput from wm_nlu to query wonderland database.
+### For the SPR challenge
+```bash
+rosrun wm_nlu spr_nlu.py
+```
+### For the GPSR challenge
+```bash
+rosrun wm_nlu gpsr_nlu.py
+```
