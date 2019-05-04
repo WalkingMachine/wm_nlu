@@ -672,6 +672,306 @@
             "entity": "name"
           }
         ]
+      },
+      {
+        "text": "I like margarita a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "margarita",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like Manhattan very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "Manhattan",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is mimosa",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 27,
+            "value": "mimosa",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love ginger beer",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "ginger beer",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is ginger soda",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 32,
+            "value": "ginger soda",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is limonade",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "limonade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like moka cappucino a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 21,
+            "value": "moka cappucino",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love moka",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "moka",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like cappucino very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "cappucino",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is diet pepsi",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 31,
+            "value": "diet pepsi",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love diet coke",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "diet coke",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like diet fanta very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 17,
+            "value": "diet fanta",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like diet sprite a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "diet sprite",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is kombucha",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "kombucha",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is cold limonade",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 34,
+            "value": "cold limonade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like cold gatorade very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 20,
+            "value": "cold gatorade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love hot tea",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "hot tea",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is hot coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 31,
+            "value": "hot coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is vanilla coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 35,
+            "value": "vanilla coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love french vanilla coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 28,
+            "value": "french vanilla coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is orange kirks",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 33,
+            "value": "orange kirks",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love kirks",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "kirks",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Schweppes",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Schweppes",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Sparkling water",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 15,
+            "value": "Sparkling water",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Sparkling apple juice",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 21,
+            "value": "Sparkling apple juice",
+            "entity": "drink"
+          }
+        ]
       }
     ]
   }
