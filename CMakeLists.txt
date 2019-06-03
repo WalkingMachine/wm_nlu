@@ -59,6 +59,8 @@ add_service_files(
   FILES
   GPSRReceiveAction.srv
   AnswerQuestion.srv
+  ReceptionistNLUService.srv
+  RestaurantNLUService.srv
 )
 
 ## Generate actions in the 'action' folder
