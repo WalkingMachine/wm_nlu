@@ -61,12 +61,12 @@ class RasaNLU():
 
             if len(orderList) == 0:
                 print("unknown")
-                return "unknown"
-            else:
-                return orderList
+
+            return orderList
         except:
             print("unknown")
-            return "unknown"
+            emptyList = []
+            return emptyList
 
 
 
