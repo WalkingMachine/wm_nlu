@@ -1,0 +1,225 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "entities": [
+          {
+            "start": 25, 
+            "end": 37, 
+            "value": "orange juice", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "My favorite drink is the orange juice"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 25, 
+            "end": 29, 
+            "value": "coke", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "My favorite drink is the coke"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 21, 
+            "end": 34, 
+            "value": "rhum and coke", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "My favorite drink is rhum and coke"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 18, 
+            "value": "apple juice", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I like apple juice very much"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 26, 
+            "value": "mountain dew", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I prefere the mountain dew"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 13, 
+            "value": "coffee", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I like coffee"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 13, 
+            "value": "tea", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I prefere tea"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 21, 
+            "end": 26, 
+            "value": "water", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "My favorite drink is water"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "Sprite", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "Sprite"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 12, 
+            "value": "Grappe juice", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "Grappe juice"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 18, 
+            "value": "Quentin", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "My name is Quentin"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 19, 
+            "value": "Philippe", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "My name is Philippe"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 18, 
+            "value": "Jeffrey", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "My name is Jeffrey"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "Raphael", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "Raphael"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "John", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "John"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 14, 
+            "value": "Bob", 
+            "entity": "name"
+          }
+        ], 
+        "intent": "person_name", 
+        "text": "My name is Bob"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 12, 
+            "value": "water", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I love water"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 10, 
+            "value": "gin", 
+            "entity": "drink"
+          }
+        ], 
+        "intent": "favorite_drink", 
+        "text": "I like gin a lot"
+      }
+    ], 
+    "entity_synonyms": [], 
+    "regex_features": [], 
+    "lookup_tables": []
+  }
+}
