@@ -59,7 +59,6 @@ add_service_files(
   FILES
   GPSRReceiveAction.srv
   AnswerQuestion.srv
-  ReceptionistNLUService.srv
   RestaurantNLUService.srv
 )
 
