@@ -4,5 +4,4 @@
     </node>
     <node name="wm_nlu_node_spr" pkg="wm_nlu" type="spr_nlu.py" output="screen" >
     </node>
-
 </launch>

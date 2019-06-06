@@ -1,0 +1,5 @@
+<launch>
+
+    <node name="wm_nlu_node_getroom" pkg="wm_nlu" type="getroom_nlu.py" output="screen" >
+    </node>
+</launch>

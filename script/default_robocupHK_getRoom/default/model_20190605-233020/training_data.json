@@ -1,0 +1,164 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "entities": [
+          {
+            "start": 24, 
+            "end": 31, 
+            "value": "bedroom", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "i want you to clean the bedroom"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 21, 
+            "end": 28, 
+            "value": "bedroom", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "pick up trash in the bedroom"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 17, 
+            "value": "kitchen", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "clean the kitchen"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "bye", 
+            "entity": "bye"
+          }
+        ], 
+        "intent": "goodbye", 
+        "text": "bye"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 7, 
+            "value": "bye", 
+            "entity": "bye"
+          }
+        ], 
+        "intent": "goodbye", 
+        "text": "goodbye"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 8, 
+            "value": "bye", 
+            "entity": "bye"
+          }
+        ], 
+        "intent": "goodbye", 
+        "text": "good bye"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 15, 
+            "value": "living room", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "the living room needs to be cleaned"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 8, 
+            "end": 11, 
+            "value": "bar", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "get the bar clean"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 17, 
+            "value": "hallway", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "clean the hallway"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 26, 
+            "end": 37, 
+            "value": "living room", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "scoop up the trash in the living room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 13, 
+            "value": "bar", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "clear the bar"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 8, 
+            "end": 15, 
+            "value": "bedroom", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "get the bedroom tidy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 12, 
+            "end": 19, 
+            "value": "kitchen", 
+            "entity": "room"
+          }
+        ], 
+        "intent": "get_room", 
+        "text": "tidy up the kitchen"
+      }
+    ], 
+    "entity_synonyms": [], 
+    "regex_features": []
+  }
+}

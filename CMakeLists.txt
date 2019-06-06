@@ -59,6 +59,7 @@ add_service_files(
   FILES
   GPSRReceiveAction.srv
   AnswerQuestion.srv
+  HKGetRoom.srv
 )
 
 ## Generate actions in the 'action' folder

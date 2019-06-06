@@ -7,6 +7,8 @@ ROS wrapper for rasa nlu. Mainly used for SPR robocup@home challenge.
 * pip install rasa_nlu[spacy]
 * python -m spacy download en_core_web_md
 * python -m spacy link en_core_web_md en
+* cd ~/sara_ws/src/wm_nlu/script/
+* pip install -r requirements.txt
 
 ## Prepare the data
 * https://rasahq.github.io/rasa-nlu-trainer/
