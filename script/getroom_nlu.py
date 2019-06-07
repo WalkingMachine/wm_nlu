@@ -38,7 +38,7 @@ class RasaNLU():
             'kitchen': ["kitchen","cooking area","cooking"],
             'hallway': ["hallway","corridor","hall","hall way"],
             'bar': ["bar","pub","bistrot"],
-            'livingroom': ["living room","living","livingroom","salon","family room","family","lounge","sitting room","sitting","parlor","parlour"]
+            'living room': ["living room","living","livingroom","salon","family room","family","lounge","sitting room","sitting","parlor","parlour"]
         }
 	
         # Load the config files
