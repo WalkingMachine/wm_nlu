@@ -143,19 +143,19 @@ class Order():
 
     def handle_get_response(self, req):
 
-        sentence = str(req.str.data)
+        sentence = str(req.str)
 
         print("Received sentence : " + sentence)
 
         if sentence.count(' ')<2:
             print("SHORT sentence")
-            return ReceptionistNLUServiceResponse(String(sentence))
+            return ReceptionistNLUServiceResponse(sentence)
 
         response = self.call_rasa(sentence.decode('utf-8'))
         print('*' * 40)
         print('')
 
-        return ReceptionistNLUServiceResponse(String(response))
+        return ReceptionistNLUServiceResponse(response)
 
     def receptionist_nlu_server(self):
         rospy.init_node('receptionist_nlu_server')
