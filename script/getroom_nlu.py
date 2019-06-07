@@ -32,11 +32,19 @@ class RasaNLU():
         }
         sys.stderr = open(os.devnull, 'w')
 
+	# Dict containing the rooms and their synonyms
+        self.rooms = {
+            'bedroom': ["bedroom","bed","bed room"],
+            'kitchen': ["kitchen","cooking area","cooking"],
+            'hallway': ["hallway","corridor","hall","hall way"],
+            'bar': ["bar","pub","bistrot"],
+            'livingroom': ["living room","living","livingroom","salon","family room","family","lounge","sitting room","sitting","parlor","parlour"]
+        }
+	
         # Load the config files
         print("Loading config files...")
         rospack = rospkg.RosPack()
         training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupHK_getRoom.json")
-        #training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocup_spr.json")
         trainer = Trainer(config.load(rospack.get_path('wm_nlu')+"/script/config_spacy.yml"))
 
         print("Training the model...")
@@ -44,7 +52,6 @@ class RasaNLU():
         trainer.train(training_data)
         # Returns the directory the model is stored in
         model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocupHK_getRoom/')
-        #model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocup_spr/')
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
         print("RasaNLU init done.")
@@ -52,10 +59,18 @@ class RasaNLU():
     # ARGS
     # -object
     # RETURN : room
+    # Will try to get a room name with synonyms
     def get_room(self, f_arg=None):
 	try:
+            for room in self.rooms.keys():
+		for synonym in self.rooms[room]:
+		    print("Comparing "+synonym+" and "+str(f_arg[0].get('value'))) 
+                    if synonym == str(f_arg[0].get('value')):
+		        # Detects and returns the key instead of the value if it is a synonym
+                        print("Detected room: "+room) 
+		        return room
 	    print("Detected room: "+str(f_arg[0].get('value')))
-	    return str(f_arg[0].get('value'))
+            return str(f_arg[0].get('value'))
 	except:
 	    return "none"
 
@@ -76,12 +91,8 @@ class GetRoomClass():
         print("Calling rasa_nlu...")
         print('*' * 40)
         response = self.rasa.interpreter.parse(question)
-        #print('*' * 40)
         entities = response.get('entities')
-        #print(str(entities))
-        #print('*' * 40)
         sentence = self.rasa.intent_functions[response.get('intent').get('name')](entities)
-        #print("sentence")
         return(sentence)
 
     def handle_get_room(self, req):
@@ -100,8 +111,7 @@ class GetRoomClass():
     def get_room_server(self):
         rospy.init_node('get_room_server')
         s = rospy.Service('get_room', HKGetRoom, self.handle_get_room)
-        #s = rospy.Service('get_room', AnswerQuestion, self.handle_get_room)
-        print("Ready to get the room.")
+        print("Ready to get the room from speech.")
         rospy.spin()
 
 
