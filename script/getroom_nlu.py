@@ -32,7 +32,7 @@ class RasaNLU():
         }
         sys.stderr = open(os.devnull, 'w')
 
-	# Dict containing the rooms and their synonyms
+       # Dict containing the rooms and their synonyms
         self.rooms = {
             'bedroom': ["bedroom","bed","bed room"],
             'kitchen': ["kitchen","cooking area","cooking"],
@@ -61,21 +61,20 @@ class RasaNLU():
     # RETURN : room
     # Will try to get a room name with synonyms
     def get_room(self, f_arg=None):
-	try:
+        try:
             for room in self.rooms.keys():
-		for synonym in self.rooms[room]:
-		    print("Comparing "+synonym+" and "+str(f_arg[0].get('value'))) 
+                for synonym in self.rooms[room]:
+                    print("Comparing "+synonym+" and "+str(f_arg[0].get('value')))
                     if synonym == str(f_arg[0].get('value')):
-		        # Detects and returns the key instead of the value if it is a synonym
-                        print("Detected room: "+room) 
-		        return room
-	    print("Detected room: "+str(f_arg[0].get('value')))
-            return str(f_arg[0].get('value'))
-	except:
-	    return "none"
+                        # Detects and returns the key instead of the value if it is a synonym
+                        print("Detected room: "+room)
+                        return room
+            return "none"
+        except:
+            return "none"
 
     def goodbye(self, f_arg=None):
-	return "none"
+        return "none"
 
 class GetRoomClass():
     def __init__(self):
@@ -97,7 +96,7 @@ class GetRoomClass():
 
     def handle_get_room(self, req):
         print("start wm_nlu")
-	print("received : "+str(req.str.data))
+        print("received : "+str(req.str.data))
         try:
             raw_sentence = str(req.str.data)
             answer = self.call_rasa(raw_sentence.decode('utf-8'))
