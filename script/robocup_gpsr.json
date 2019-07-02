@@ -1272,6 +1272,72 @@
             "entity": "object"
           }
         ]
+      },
+      {
+        "text": "Grasp the orange juice and place it on the desk",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 10,
+            "end": 22,
+            "value": "orange juice",
+            "entity": "object"
+          },
+          {
+            "start": 43,
+            "end": 47,
+            "value": "desk",
+            "entity": "object"
+          }
+        ]
+      },
+      {
+        "text": "Take the orange juice from the counter and bring it to Elizabeth at the desk",
+        "intent": "deliver",
+        "entities": [
+          {
+            "start": 9,
+            "end": 21,
+            "value": "orange juice",
+            "entity": "object"
+          },
+          {
+            "start": 31,
+            "end": 38,
+            "value": "counter",
+            "entity": "object"
+          },
+          {
+            "start": 72,
+            "end": 76,
+            "value": "desk",
+            "entity": "object"
+          },
+          {
+            "start": 55,
+            "end": 64,
+            "value": "Elizabeth",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Tell me how many orange juice there are on the dining table",
+        "intent": "count_object",
+        "entities": [
+          {
+            "start": 17,
+            "end": 29,
+            "value": "orange juice",
+            "entity": "object"
+          },
+          {
+            "start": 47,
+            "end": 59,
+            "value": "dining table",
+            "entity": "object"
+          }
+        ]
       }
     ]
   }

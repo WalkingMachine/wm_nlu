@@ -1,0 +1,978 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "My favorite drink is the orange juice",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 25,
+            "end": 37,
+            "value": "orange juice",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is the coke",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 25,
+            "end": 29,
+            "value": "coke",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is rhum and coke",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 34,
+            "value": "rhum and coke",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like apple juice very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "apple juice",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I prefere the mountain dew",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 14,
+            "end": 26,
+            "value": "mountain dew",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I prefere tea",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 10,
+            "end": 13,
+            "value": "tea",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is water",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 26,
+            "value": "water",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Sprite",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Sprite",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Grappe juice",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 12,
+            "value": "Grappe juice",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Call me Amelia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 14,
+            "value": "Amelia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Call me Oliver",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 14,
+            "value": "Oliver",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Ava",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 14,
+            "value": "Ava",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Charlie",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "Charlie",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Charlotte",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Charlotte",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Hunter",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 17,
+            "value": "Hunter",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "I love water",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "water",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like gin a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 10,
+            "value": "gin",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like beer a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "beer",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I prefere beer",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 10,
+            "end": 14,
+            "value": "beer",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is the gin",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 25,
+            "end": 28,
+            "value": "gin",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My name is John",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "John",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is hot chocolate",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 34,
+            "value": "hot chocolate",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like ice tea",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "ice tea",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Call me Mia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 11,
+            "value": "Mia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Olivia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 22,
+            "value": "Olivia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Call me Parker",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 14,
+            "value": "Parker",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Sam",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "Sam",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Noah",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "Noah",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Charlie",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 18,
+            "value": "Charlie",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Hunter",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Hunter",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Jack",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "Jack",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Max",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "Max",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Noah",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "Noah",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Oliver",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 22,
+            "value": "Oliver",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Parker",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 17,
+            "value": "Parker",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Sam",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 14,
+            "value": "Sam",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Thomas",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 17,
+            "value": "Thomas",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is William",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 18,
+            "value": "William",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Call me John",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 12,
+            "value": "John",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Amelia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Amelia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Angel",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 5,
+            "value": "Angel",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Ava",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 19,
+            "value": "Ava",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Charlie",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 23,
+            "value": "Charlie",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Charlotte",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 20,
+            "value": "Charlotte",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Hunter",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 22,
+            "value": "Hunter",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Max",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 14,
+            "value": "Max",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Mia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 14,
+            "value": "Mia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Olivia",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Olivia",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Parker",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Parker",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Sam",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 19,
+            "value": "Sam",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "My name is Angel",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 11,
+            "end": 16,
+            "value": "Angel",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Thomas",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "Thomas",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Call me William",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 8,
+            "end": 15,
+            "value": "William",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "Jack",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "Jack",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "You can call me Max",
+        "intent": "person_name",
+        "entities": [
+          {
+            "start": 16,
+            "end": 19,
+            "value": "Max",
+            "entity": "name"
+          }
+        ]
+      },
+      {
+        "text": "I like margarita a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "margarita",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like Manhattan very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "Manhattan",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is mimosa",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 27,
+            "value": "mimosa",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love ginger beer",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "ginger beer",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is ginger soda",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 32,
+            "value": "ginger soda",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is limonade",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "limonade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like moka cappucino a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 21,
+            "value": "moka cappucino",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love moka",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "moka",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like cappucino very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "cappucino",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is diet pepsi",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 31,
+            "value": "diet pepsi",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love diet coke",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "diet coke",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like diet fanta very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 17,
+            "value": "diet fanta",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like diet sprite a lot",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "diet sprite",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is kombucha",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "kombucha",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is cold limonade",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 34,
+            "value": "cold limonade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I like cold gatorade very much",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 20,
+            "value": "cold gatorade",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love hot tea",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "hot tea",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is hot coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 31,
+            "value": "hot coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is vanilla coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 35,
+            "value": "vanilla coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love french vanilla coffee",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 28,
+            "value": "french vanilla coffee",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "My favorite drink is orange kirks",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 21,
+            "end": 33,
+            "value": "orange kirks",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "I love kirks",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "kirks",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Schweppes",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Schweppes",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Sparkling water",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 15,
+            "value": "Sparkling water",
+            "entity": "drink"
+          }
+        ]
+      },
+      {
+        "text": "Sparkling apple juice",
+        "intent": "favorite_drink",
+        "entities": [
+          {
+            "start": 0,
+            "end": 21,
+            "value": "Sparkling apple juice",
+            "entity": "drink"
+          }
+        ]
+      }
+    ]
+  }
+}
