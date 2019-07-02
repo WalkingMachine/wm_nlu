@@ -35,9 +35,8 @@ class RasaNLU():
        # Dict containing the rooms and their synonyms
         self.rooms = {
             'bedroom': ["bedroom","bed","bed room"],
-            'kitchen': ["kitchen","cooking area","cooking"],
-            'hallway': ["hallway","corridor","hall","hall way"],
-            'bar': ["bar","pub","bistrot"],
+            'kitchen': ["diningroom","dining room", "dining", "dinette", "eating","eating place", "kitchen","cooking area","cooking"],
+            'office': ["office","work station","workstation", "studio", "workspace" ,"workroom" ,"work" ,"study", "bureau", "desk"],
             'living room': ["living room","living","livingroom","salon","family room","family","lounge","sitting room","sitting","parlor","parlour"]
         }
 	
