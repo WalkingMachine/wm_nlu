@@ -326,6 +326,42 @@
         ]
       },
       {
+        "text": "bye",
+        "intent": "goodbye",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "bye",
+            "entity": "bye"
+          }
+        ]
+      },
+      {
+        "text": "goodbye",
+        "intent": "goodbye",
+        "entities": [
+          {
+            "start": 4,
+            "end": 7,
+            "value": "bye",
+            "entity": "bye"
+          }
+        ]
+      },
+      {
+        "text": "good bye",
+        "intent": "goodbye",
+        "entities": [
+          {
+            "start": 5,
+            "end": 8,
+            "value": "bye",
+            "entity": "bye"
+          }
+        ]
+      },
+      {
         "text": "Where is the sink?",
         "intent": "where_is",
         "entities": [
