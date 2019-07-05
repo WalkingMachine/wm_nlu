@@ -61,7 +61,7 @@ class RasaNLU():
         # Load the config files
         print("Loading config files...")
         rospack = rospkg.RosPack()
-        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupHK_getObject.json")
+        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupPH_getRoom.json")
         trainer = Trainer(config.load(rospack.get_path('wm_nlu')+"/script/config_spacy.yml"))
 
         print("Training the model...")

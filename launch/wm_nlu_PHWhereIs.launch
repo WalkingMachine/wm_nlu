@@ -1,0 +1,5 @@
+<launch>
+
+    <node name="wm_nlu_node_getobject" pkg="wm_nlu" type="getObject_nlu.py" output="screen" >
+    </node>
+</launch>
