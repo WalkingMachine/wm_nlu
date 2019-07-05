@@ -34,23 +34,23 @@ class RasaNLU():
 
        # Dict containing the rooms and their synonyms
         self.rooms = {
-            'bedroom': ["bedroom","bed","bed room"],
-            'kitchen': ["diningroom","dining room", "dining", "dinette", "eating","eating place", "kitchen","cooking area","cooking"],
-            'office': ["office","work station","workstation", "studio", "workspace" ,"workroom" ,"work" ,"study", "bureau", "desk"],
-            'living room': ["living room","living","livingroom","salon","family room","family","lounge","sitting room","sitting","parlor","parlour"]
+            'bedroom': ["bedroom", "bed", "bed room"],
+            'kitchen': ["diningroom", "dining room", "dining", "dinette", "eating", "eating place", "kitchen", "cooking area", "cooking"],
+            'office': ["office", "work station", "workstation", "studio", "workspace", "workroom", "work", "study", "bureau", "desk"],
+            'living room': ["living room", "living", "livingroom", "salon", "family room", "family", "lounge", "sitting room", "sitting", "parlor", "parlour"]
         }
 	
         # Load the config files
         print("Loading config files...")
         rospack = rospkg.RosPack()
-        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupHK_getRoom.json")
+        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupPH_getRoom.json")
         trainer = Trainer(config.load(rospack.get_path('wm_nlu')+"/script/config_spacy.yml"))
 
         print("Training the model...")
         # Train the model based on the robocupHK_getRoom.json file
         trainer.train(training_data)
         # Returns the directory the model is stored in
-        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocupHK_getRoom/')
+        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocupPH_getRoom/')
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
         print("RasaNLU init done.")
@@ -100,15 +100,15 @@ class GetRoomClass():
             raw_sentence = str(req.str.data)
             answer = self.call_rasa(raw_sentence.decode('utf-8'))
             if len(answer) > 0:
-                return HKGetRoomResponse(String(answer))
+                return PHGetRoomResponse(String(answer))
             else:
-                return HKGetRoomResponse(String("none"))
+                return PHGetRoomResponse(String("none"))
         except:
-            return HKGetRoomResponse(String("except"))
+            return PHGetRoomResponse(String("except"))
 
     def get_room_server(self):
         rospy.init_node('get_room_server')
-        s = rospy.Service('get_room', HKGetRoom, self.handle_get_room)
+        s = rospy.Service('get_room', PHGetRoom, self.handle_get_room)
         print("Ready to get the room from speech.")
         rospy.spin()
 
