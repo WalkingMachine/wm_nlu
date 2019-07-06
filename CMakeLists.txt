@@ -60,6 +60,7 @@ add_service_files(
   GPSRReceiveAction.srv
   AnswerQuestion.srv
   PHGetObject.srv
+  PHGetRoom.srv
 )
 
 ## Generate actions in the 'action' folder

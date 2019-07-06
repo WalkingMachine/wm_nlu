@@ -27,48 +27,30 @@ class RasaNLU():
 
         # Dict containing the entity and their function
         self.intent_functions = {
-            'where_is': self.get_object,
+            'get_info_point': self.get_object,
             'goodbye': self.goodbye
         }
         sys.stderr = open(os.devnull, 'w')
         
-        # Dict containing the objects and their synonyms
-        self.objects = {
-            'Sink': ["sink"],
-            'Display cabinet': ["display cabinet"],
-            'Kitchen cabinet': ["kitchen cabinet"],
-            'Sideboard': ["sideboard", "side board"],
-            'Desk': ["desk"],
-            'Shelf': ["shelf"],
-            'Kitchen table': ["kitchen table"],
-            'bed': ["bed"],
-            'side table': ["side table"],
-            'bedroom chest': ["bedroom chest"],
-            'shoe rack': ["shoe rack"],
-            'dishwasher': ["dishwasher"],
-            'fridge coat hanger': ["coat hanger"],
-            'island': ["island"],
-            'trash': ["trash"],
-            'bin': ["bin","trashbin"],
-            'tv': ["television","tv"],
-            'couch': ["couch","sofa"],
-            'coffee': ["coffee"],
-            'table': ["table"],
-            'armchair':["armchair","chair"],
-            'plant': ["plant"]
+        # Dict containing the rooms and their synonyms
+        self.rooms = {
+            'bedroom': ["bedroom", "bed", "bed room"],
+            'kitchen': ["diningroom", "dining room", "dining", "dinette", "eating", "eating place", "kitchen", "cooking area", "cooking"],
+            'office': ["office", "work station", "workstation", "studio", "workspace", "workroom", "work", "study", "bureau", "desk"],
+            'living room': ["living room", "living", "livingroom", "salon", "family room", "family", "lounge", "sitting room", "sitting", "parlor", "parlour"]
         }
         
         # Load the config files
         print("Loading config files...")
         rospack = rospkg.RosPack()
-        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupPH_getObject.json")
+        training_data = load_data(rospack.get_path('wm_nlu')+"/script/robocupPH_getRoom.json")
         trainer = Trainer(config.load(rospack.get_path('wm_nlu')+"/script/config_spacy.yml"))
 
         print("Training the model...")
         # Train the model based on the robocupPH_getRoom.json file
         trainer.train(training_data)
         # Returns the directory the model is stored in
-        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocupPH_getObject/')
+        model_directory = trainer.persist(rospack.get_path('wm_nlu')+'/script/default_robocupPH_getRoom/')
         print("Loading the model...")
         self.interpreter = Interpreter.load(model_directory)
         print("RasaNLU init done.")
@@ -79,20 +61,19 @@ class RasaNLU():
     # Will try to get an object name with synonyms
     def get_object(self, f_arg=None):
         try:
-            for object in self.objects.keys():
-                for synonym in self.objects[object]:
+            for room in self.rooms.keys():
+                for synonym in self.rooms[room]:
                     print("Comparing "+synonym+" and "+str(f_arg[0].get('value')))
                     if synonym == str(f_arg[0].get('value')):
                         # Detects and returns the key instead of the value if it is a synonym
-                        print("Detected object: "+object)
-                        return object
-            return str(f_arg[0].get('value'))
+                        print("Detected room: "+room)
+                        return room
+            return "none"
         except:
             return "none"
 
     def goodbye(self, f_arg=None):
         return "none"
-
 
 class GetObjectClass():
     def __init__(self):
@@ -112,28 +93,28 @@ class GetObjectClass():
         sentence = self.rasa.intent_functions[response.get('intent').get('name')](entities)
         return sentence
 
-    def handle_get_object(self, req):
+    def handle_get_room(self, req):
         print("start wm_nlu")
         print("received : "+str(req.str.data))
         try:
             raw_sentence = str(req.str.data)
             answer = self.call_rasa(raw_sentence.decode('utf-8'))
             if len(answer) > 0:
-                return PHGetObjectResponse(String(answer))
+                return PHGetRoomResponse(String(answer))
             else:
-                return PHGetObjectResponse(String("none"))
+                return PHGetRoomResponse(String("none"))
         except:
-            return PHGetObjectResponse(String("except"))
+            return PHGetRoomResponse(String("except"))
 
-    def get_object_server(self):
-        rospy.init_node('get_object_server')
-        s = rospy.Service('get_object', PHGetObject, self.handle_get_object)
-        print("Ready to get the object from speech.")
+    def get_room_server(self):
+        rospy.init_node('get_room_server')
+        s = rospy.Service('get_room', PHGetRoom, self.handle_get_room)
+        print("Ready to get the room from speech.")
         rospy.spin()
 
 
 if __name__ == "__main__":
     q = GetObjectClass()
-    q.get_object_server()
+    q.get_room_server()
 
 

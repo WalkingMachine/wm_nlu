@@ -2,326 +2,302 @@
   "rasa_nlu_data": {
     "common_examples": [
       {
-        "text": "help me find the desk",
-        "intent": "where_is",
+        "text": "Please go to the room",
+        "intent": "get_info_point",
         "entities": [
-          {
-            "start": 8,
-            "end": 12,
-            "value": "find",
-            "entity": "LocationVerb"
-          },
           {
             "start": 17,
             "end": 21,
-            "value": "desk",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "I want to locate the sink",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 10,
-            "end": 16,
-            "value": "locate",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 21,
-            "end": 25,
-            "value": "sink",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "look for the sink",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 0,
-            "end": 4,
-            "value": "look",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 13,
-            "end": 17,
-            "value": "sink",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "I want to see the desk",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 10,
-            "end": 13,
-            "value": "see",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 18,
-            "end": 22,
-            "value": "desk",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "I want to go to the desk",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 20,
-            "end": 24,
-            "value": "desk",
-            "entity": "ObjectName"
+            "value": "room",
+            "entity": "RoomName"
           },
           {
             "start": 7,
             "end": 12,
-            "value": "to go",
-            "entity": "LocationVerb"
+            "value": "go to",
+            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "locate the sink",
-        "intent": "where_is",
+        "text": "go to the room",
+        "intent": "get_info_point",
         "entities": [
           {
-            "start": 0,
-            "end": 6,
-            "value": "locate",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 11,
-            "end": 15,
-            "value": "sink",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "The desk",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 4,
-            "end": 8,
-            "value": "desk",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "watch for the sink",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 14,
-            "end": 18,
-            "value": "sink",
-            "entity": "ObjectName"
+            "start": 10,
+            "end": 14,
+            "value": "room",
+            "entity": "RoomName"
           },
           {
             "start": 0,
             "end": 5,
-            "value": "watch",
-            "entity": "LocationVerb"
+            "value": "go to",
+            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "Find the desk",
-        "intent": "where_is",
+        "text": "in room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 3,
+            "end": 7,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "room",
+        "intent": "get_info_point",
         "entities": [
           {
             "start": 0,
             "end": 4,
-            "value": "Find",
-            "entity": "LocationVerb"
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "room please",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "the room is the information point",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 4,
+            "end": 8,
+            "value": "room",
+            "entity": "RoomName"
           },
           {
             "start": 9,
-            "end": 13,
-            "value": "desk",
-            "entity": "ObjectName"
+            "end": 11,
+            "value": "is",
+            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "I am looking for the desk",
-        "intent": "where_is",
+        "text": "the room please",
+        "intent": "get_info_point",
         "entities": [
           {
-            "start": 5,
-            "end": 12,
-            "value": "looking",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 21,
-            "end": 25,
-            "value": "desk",
-            "entity": "ObjectName"
+            "start": 4,
+            "end": 8,
+            "value": "room",
+            "entity": "RoomName"
           }
         ]
       },
       {
-        "text": "Can you show me the desk?",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 8,
-            "end": 12,
-            "value": "show",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 20,
-            "end": 24,
-            "value": "desk",
-            "entity": "ObjectName"
-          }
-        ]
-      },
-      {
-        "text": "I want to go to the desk",
-        "intent": "where_is",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "to go",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 20,
-            "end": 24,
-            "value": "desk",
-            "entity": "ObjectName"
-          },
-          {
-            "start": 13,
-            "end": 15,
-            "value": "to",
-            "entity": "LocationVerb"
-          }
-        ]
-      },
-      {
-        "text": "Please show me the desk",
-        "intent": "where_is",
+        "text": "Please wait in the room",
+        "intent": "get_info_point",
         "entities": [
           {
             "start": 7,
             "end": 11,
-            "value": "show",
-            "entity": "LocationVerb"
+            "value": "wait",
+            "entity": "GoToVerb"
           },
           {
             "start": 19,
             "end": 23,
-            "value": "desk",
-            "entity": "ObjectName"
+            "value": "room",
+            "entity": "RoomName"
           }
         ]
       },
       {
-        "text": "I want to see the desk",
-        "intent": "where_is",
+        "text": "you can wait in the room",
+        "intent": "get_info_point",
         "entities": [
           {
-            "start": 10,
-            "end": 13,
-            "value": "see",
-            "entity": "LocationVerb"
+            "start": 8,
+            "end": 12,
+            "value": "wait",
+            "entity": "GoToVerb"
           },
           {
-            "start": 18,
-            "end": 22,
-            "value": "desk",
-            "entity": "ObjectName"
+            "start": 20,
+            "end": 24,
+            "value": "room",
+            "entity": "RoomName"
           }
         ]
       },
       {
-        "text": "To the sink",
-        "intent": "where_is",
+        "text": "the room please",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 4,
+            "end": 8,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "Please wait in the room",
+        "intent": "get_info_point",
         "entities": [
           {
             "start": 7,
             "end": 11,
-            "value": "sink",
-            "entity": "ObjectName"
+            "value": "wait",
+            "entity": "GoToVerb"
           },
           {
-            "start": 0,
-            "end": 2,
-            "value": "To",
-            "entity": "LocationVerb"
+            "start": 19,
+            "end": 23,
+            "value": "room",
+            "entity": "RoomName"
           }
         ]
       },
       {
-        "text": "Where's the sink?",
-        "intent": "where_is",
+        "text": "you can wait in the room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 20,
+            "end": 24,
+            "value": "room",
+            "entity": "RoomName"
+          },
+          {
+            "start": 8,
+            "end": 12,
+            "value": "wait",
+            "entity": "GoToVerb"
+          }
+        ]
+      },
+      {
+        "text": "the room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 4,
+            "end": 8,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "it's in the room",
+        "intent": "get_info_point",
         "entities": [
           {
             "start": 12,
             "end": 16,
-            "value": "sink",
-            "entity": "ObjectName"
+            "value": "room",
+            "entity": "RoomName"
           },
-          {
-            "start": 0,
-            "end": 7,
-            "value": "Where's",
-            "entity": "LocationVerb"
-          }
-        ]
-      },
-      {
-        "text": "Show me the sink",
-        "intent": "where_is",
-        "entities": [
           {
             "start": 0,
             "end": 4,
-            "value": "Show",
-            "entity": "LocationVerb"
-          },
-          {
-            "start": 12,
-            "end": 16,
-            "value": "sink",
-            "entity": "ObjectName"
+            "value": "it's",
+            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "I am looking for the desk",
-        "intent": "where_is",
+        "text": "it is in the room",
+        "intent": "get_info_point",
         "entities": [
           {
-            "start": 5,
-            "end": 12,
-            "value": "looking",
-            "entity": "LocationVerb"
+            "start": 13,
+            "end": 17,
+            "value": "room",
+            "entity": "RoomName"
           },
           {
-            "start": 21,
-            "end": 25,
-            "value": "desk",
-            "entity": "ObjectName"
+            "start": 3,
+            "end": 5,
+            "value": "is",
+            "entity": "GoToVerb"
+          }
+        ]
+      },
+      {
+        "text": "wait in the room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 12,
+            "end": 16,
+            "value": "room",
+            "entity": "RoomName"
+          },
+          {
+            "start": 0,
+            "end": 4,
+            "value": "wait",
+            "entity": "GoToVerb"
+          }
+        ]
+      },
+      {
+        "text": "in the room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "the information point is in room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 22,
+            "end": 24,
+            "value": "is",
+            "entity": "GoToVerb"
+          },
+          {
+            "start": 28,
+            "end": 32,
+            "value": "room",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
+        "text": "Go to room",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "room",
+            "entity": "RoomName"
+          },
+          {
+            "start": 0,
+            "end": 5,
+            "value": "Go to",
+            "entity": "GoToVerb"
           }
         ]
       },
@@ -362,20 +338,20 @@
         ]
       },
       {
-        "text": "Where is the sink?",
-        "intent": "where_is",
+        "text": "wait in room",
+        "intent": "get_info_point",
         "entities": [
           {
-            "start": 13,
-            "end": 17,
-            "value": "sink",
-            "entity": "ObjectName"
+            "start": 8,
+            "end": 12,
+            "value": "room",
+            "entity": "RoomName"
           },
           {
             "start": 0,
-            "end": 5,
-            "value": "Where",
-            "entity": "LocationVerb"
+            "end": 4,
+            "value": "wait",
+            "entity": "GoToVerb"
           }
         ]
       }
