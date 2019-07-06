@@ -6,12 +6,6 @@
         "intent": "where_is",
         "entities": [
           {
-            "start": 8,
-            "end": 12,
-            "value": "find",
-            "entity": "LocationVerb"
-          },
-          {
             "start": 17,
             "end": 21,
             "value": "desk",
@@ -23,12 +17,6 @@
         "text": "I want to locate the sink",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 10,
-            "end": 16,
-            "value": "locate",
-            "entity": "LocationVerb"
-          },
           {
             "start": 21,
             "end": 25,
@@ -42,12 +30,6 @@
         "intent": "where_is",
         "entities": [
           {
-            "start": 0,
-            "end": 4,
-            "value": "look",
-            "entity": "LocationVerb"
-          },
-          {
             "start": 13,
             "end": 17,
             "value": "sink",
@@ -59,12 +41,6 @@
         "text": "I want to see the desk",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 10,
-            "end": 13,
-            "value": "see",
-            "entity": "LocationVerb"
-          },
           {
             "start": 18,
             "end": 22,
@@ -82,12 +58,6 @@
             "end": 24,
             "value": "desk",
             "entity": "ObjectName"
-          },
-          {
-            "start": 7,
-            "end": 12,
-            "value": "to go",
-            "entity": "LocationVerb"
           }
         ]
       },
@@ -95,12 +65,6 @@
         "text": "locate the sink",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 0,
-            "end": 6,
-            "value": "locate",
-            "entity": "LocationVerb"
-          },
           {
             "start": 11,
             "end": 15,
@@ -130,12 +94,6 @@
             "end": 18,
             "value": "sink",
             "entity": "ObjectName"
-          },
-          {
-            "start": 0,
-            "end": 5,
-            "value": "watch",
-            "entity": "LocationVerb"
           }
         ]
       },
@@ -143,12 +101,6 @@
         "text": "Find the desk",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 0,
-            "end": 4,
-            "value": "Find",
-            "entity": "LocationVerb"
-          },
           {
             "start": 9,
             "end": 13,
@@ -162,12 +114,6 @@
         "intent": "where_is",
         "entities": [
           {
-            "start": 5,
-            "end": 12,
-            "value": "looking",
-            "entity": "LocationVerb"
-          },
-          {
             "start": 21,
             "end": 25,
             "value": "desk",
@@ -179,12 +125,6 @@
         "text": "Can you show me the desk?",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 8,
-            "end": 12,
-            "value": "show",
-            "entity": "LocationVerb"
-          },
           {
             "start": 20,
             "end": 24,
@@ -198,22 +138,10 @@
         "intent": "where_is",
         "entities": [
           {
-            "start": 7,
-            "end": 12,
-            "value": "to go",
-            "entity": "LocationVerb"
-          },
-          {
             "start": 20,
             "end": 24,
             "value": "desk",
             "entity": "ObjectName"
-          },
-          {
-            "start": 13,
-            "end": 15,
-            "value": "to",
-            "entity": "LocationVerb"
           }
         ]
       },
@@ -221,12 +149,6 @@
         "text": "Please show me the desk",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 7,
-            "end": 11,
-            "value": "show",
-            "entity": "LocationVerb"
-          },
           {
             "start": 19,
             "end": 23,
@@ -239,12 +161,6 @@
         "text": "I want to see the desk",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 10,
-            "end": 13,
-            "value": "see",
-            "entity": "LocationVerb"
-          },
           {
             "start": 18,
             "end": 22,
@@ -262,12 +178,6 @@
             "end": 11,
             "value": "sink",
             "entity": "ObjectName"
-          },
-          {
-            "start": 0,
-            "end": 2,
-            "value": "To",
-            "entity": "LocationVerb"
           }
         ]
       },
@@ -280,12 +190,6 @@
             "end": 16,
             "value": "sink",
             "entity": "ObjectName"
-          },
-          {
-            "start": 0,
-            "end": 7,
-            "value": "Where's",
-            "entity": "LocationVerb"
           }
         ]
       },
@@ -293,12 +197,6 @@
         "text": "Show me the sink",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 0,
-            "end": 4,
-            "value": "Show",
-            "entity": "LocationVerb"
-          },
           {
             "start": 12,
             "end": 16,
@@ -311,12 +209,6 @@
         "text": "I am looking for the desk",
         "intent": "where_is",
         "entities": [
-          {
-            "start": 5,
-            "end": 12,
-            "value": "looking",
-            "entity": "LocationVerb"
-          },
           {
             "start": 21,
             "end": 25,
@@ -370,12 +262,42 @@
             "end": 17,
             "value": "sink",
             "entity": "ObjectName"
-          },
+          }
+        ]
+      },
+      {
+        "text": "Tell me where the bed is",
+        "intent": "where_is",
+        "entities": [
           {
-            "start": 0,
-            "end": 5,
-            "value": "Where",
-            "entity": "LocationVerb"
+            "start": 18,
+            "end": 21,
+            "value": "bed",
+            "entity": "ObjectName"
+          }
+        ]
+      },
+      {
+        "text": "Show me the way to the desk",
+        "intent": "where_is",
+        "entities": [
+          {
+            "start": 23,
+            "end": 27,
+            "value": "desk",
+            "entity": "ObjectName"
+          }
+        ]
+      },
+      {
+        "text": "Guide me to the cupboard",
+        "intent": "where_is",
+        "entities": [
+          {
+            "start": 16,
+            "end": 24,
+            "value": "cupboard",
+            "entity": "ObjectName"
           }
         ]
       }

@@ -10,65 +10,17 @@
             "end": 21,
             "value": "room",
             "entity": "RoomName"
-          },
-          {
-            "start": 7,
-            "end": 12,
-            "value": "go to",
-            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "go to the room",
+        "text": "go to the kitchen",
         "intent": "get_info_point",
         "entities": [
           {
             "start": 10,
-            "end": 14,
-            "value": "room",
-            "entity": "RoomName"
-          },
-          {
-            "start": 0,
-            "end": 5,
-            "value": "go to",
-            "entity": "GoToVerb"
-          }
-        ]
-      },
-      {
-        "text": "in room",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 3,
-            "end": 7,
-            "value": "room",
-            "entity": "RoomName"
-          }
-        ]
-      },
-      {
-        "text": "room",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 0,
-            "end": 4,
-            "value": "room",
-            "entity": "RoomName"
-          }
-        ]
-      },
-      {
-        "text": "room please",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 0,
-            "end": 4,
-            "value": "room",
+            "end": 17,
+            "value": "kitchen",
             "entity": "RoomName"
           }
         ]
@@ -82,12 +34,6 @@
             "end": 8,
             "value": "room",
             "entity": "RoomName"
-          },
-          {
-            "start": 9,
-            "end": 11,
-            "value": "is",
-            "entity": "GoToVerb"
           }
         ]
       },
@@ -108,12 +54,6 @@
         "intent": "get_info_point",
         "entities": [
           {
-            "start": 7,
-            "end": 11,
-            "value": "wait",
-            "entity": "GoToVerb"
-          },
-          {
             "start": 19,
             "end": 23,
             "value": "room",
@@ -126,12 +66,6 @@
         "intent": "get_info_point",
         "entities": [
           {
-            "start": 8,
-            "end": 12,
-            "value": "wait",
-            "entity": "GoToVerb"
-          },
-          {
             "start": 20,
             "end": 24,
             "value": "room",
@@ -140,13 +74,13 @@
         ]
       },
       {
-        "text": "the room please",
+        "text": "the living room please",
         "intent": "get_info_point",
         "entities": [
           {
             "start": 4,
-            "end": 8,
-            "value": "room",
+            "end": 15,
+            "value": "living room",
             "entity": "RoomName"
           }
         ]
@@ -156,12 +90,6 @@
         "intent": "get_info_point",
         "entities": [
           {
-            "start": 7,
-            "end": 11,
-            "value": "wait",
-            "entity": "GoToVerb"
-          },
-          {
             "start": 19,
             "end": 23,
             "value": "room",
@@ -178,42 +106,18 @@
             "end": 24,
             "value": "room",
             "entity": "RoomName"
-          },
-          {
-            "start": 8,
-            "end": 12,
-            "value": "wait",
-            "entity": "GoToVerb"
           }
         ]
       },
       {
-        "text": "the room",
+        "text": "the office",
         "intent": "get_info_point",
         "entities": [
           {
             "start": 4,
-            "end": 8,
-            "value": "room",
+            "end": 10,
+            "value": "office",
             "entity": "RoomName"
-          }
-        ]
-      },
-      {
-        "text": "it's in the room",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 12,
-            "end": 16,
-            "value": "room",
-            "entity": "RoomName"
-          },
-          {
-            "start": 0,
-            "end": 4,
-            "value": "it's",
-            "entity": "GoToVerb"
           }
         ]
       },
@@ -226,12 +130,6 @@
             "end": 17,
             "value": "room",
             "entity": "RoomName"
-          },
-          {
-            "start": 3,
-            "end": 5,
-            "value": "is",
-            "entity": "GoToVerb"
           }
         ]
       },
@@ -244,12 +142,6 @@
             "end": 16,
             "value": "room",
             "entity": "RoomName"
-          },
-          {
-            "start": 0,
-            "end": 4,
-            "value": "wait",
-            "entity": "GoToVerb"
           }
         ]
       },
@@ -266,38 +158,14 @@
         ]
       },
       {
-        "text": "the information point is in room",
+        "text": "the information point is in the bedroom",
         "intent": "get_info_point",
         "entities": [
           {
-            "start": 22,
-            "end": 24,
-            "value": "is",
-            "entity": "GoToVerb"
-          },
-          {
-            "start": 28,
-            "end": 32,
-            "value": "room",
+            "start": 32,
+            "end": 39,
+            "value": "bedroom",
             "entity": "RoomName"
-          }
-        ]
-      },
-      {
-        "text": "Go to room",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 6,
-            "end": 10,
-            "value": "room",
-            "entity": "RoomName"
-          },
-          {
-            "start": 0,
-            "end": 5,
-            "value": "Go to",
-            "entity": "GoToVerb"
           }
         ]
       },
@@ -334,24 +202,6 @@
             "end": 8,
             "value": "bye",
             "entity": "bye"
-          }
-        ]
-      },
-      {
-        "text": "wait in room",
-        "intent": "get_info_point",
-        "entities": [
-          {
-            "start": 8,
-            "end": 12,
-            "value": "room",
-            "entity": "RoomName"
-          },
-          {
-            "start": 0,
-            "end": 4,
-            "value": "wait",
-            "entity": "GoToVerb"
           }
         ]
       }

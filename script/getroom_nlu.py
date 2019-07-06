@@ -27,7 +27,7 @@ class RasaNLU():
 
         # Dict containing the entity and their function
         self.intent_functions = {
-            'get_info_point': self.get_object,
+            'get_info_point': self.get_room,
             'goodbye': self.goodbye
         }
         sys.stderr = open(os.devnull, 'w')
@@ -59,9 +59,9 @@ class RasaNLU():
     # -object
     # RETURN : object
     # Will try to get an object name with synonyms
-    def get_object(self, f_arg=None):
+    def get_room(self, f_arg=None):
         try:
-            for room in self.rooms.keys():
+            for room in self.rooms:
                 for synonym in self.rooms[room]:
                     print("Comparing "+synonym+" and "+str(f_arg[0].get('value')))
                     if synonym == str(f_arg[0].get('value')):
@@ -75,7 +75,8 @@ class RasaNLU():
     def goodbye(self, f_arg=None):
         return "none"
 
-class GetObjectClass():
+
+class getRoomClass():
     def __init__(self):
         self.RecoString = []
         self.ANSWERS = []
@@ -90,6 +91,7 @@ class GetObjectClass():
         print('*' * 40)
         response = self.rasa.interpreter.parse(question)
         entities = response.get('entities')
+        print(response) #Returns no entities
         sentence = self.rasa.intent_functions[response.get('intent').get('name')](entities)
         return sentence
 
@@ -114,7 +116,7 @@ class GetObjectClass():
 
 
 if __name__ == "__main__":
-    q = GetObjectClass()
+    q = getRoomClass()
     q.get_room_server()
 
 

@@ -108,6 +108,7 @@ class GetObjectClass():
         print("Calling rasa_nlu...")
         print('*' * 40)
         response = self.rasa.interpreter.parse(question)
+        print(response) #Returns no entities
         entities = response.get('entities')
         sentence = self.rasa.intent_functions[response.get('intent').get('name')](entities)
         return sentence
