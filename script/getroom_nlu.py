@@ -34,10 +34,10 @@ class RasaNLU():
         
         # Dict containing the rooms and their synonyms
         self.rooms = {
-            'bedroom': ["bedroom", "bed", "bed room"],
-            'kitchen': ["diningroom", "dining room", "dining", "dinette", "eating", "eating place", "kitchen", "cooking area", "cooking"],
-            'office': ["office", "work station", "workstation", "studio", "workspace", "workroom", "work", "study", "bureau", "desk"],
-            'living room': ["living room", "living", "livingroom", "salon", "family room", "family", "lounge", "sitting room", "sitting", "parlor", "parlour"]
+            'bedroom': ["bedroom", "bed", "bed room", "shelf"],
+            'kitchen': ["diningroom", "dining room", "dining", "dinette", "eating", "eating place", "kitchen", "cooking area", "cooking","kitchen table", "sink", "cabinet"],
+            'office': ["office", "work station", "workstation", "studio", "workspace", "workroom", "work", "study", "bureau", "desk", "desk"],
+            'living room': ["living room", "living", "livingroom", "salon", "family room", "family", "lounge", "sitting room", "sitting", "parlor", "parlour", "display", "sideboard", "coffee table"]
         }
         
         # Load the config files
@@ -99,6 +99,8 @@ class getRoomClass():
         print("start wm_nlu")
         print("received : "+str(req.str.data))
         try:
+            if "kitchen table" in str(req.str.data):
+                return PHGetRoomResponse(String("kitchen"))
             raw_sentence = str(req.str.data)
             answer = self.call_rasa(raw_sentence.decode('utf-8'))
             if len(answer) > 0:

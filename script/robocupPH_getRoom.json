@@ -26,6 +26,18 @@
         ]
       },
       {
+        "text": "go to the kitchen table",
+        "intent": "get_info_point",
+        "entities": [
+          {
+            "start": 10,
+            "end": 23,
+            "value": "kitchen",
+            "entity": "RoomName"
+          }
+        ]
+      },
+      {
         "text": "the room is the information point",
         "intent": "get_info_point",
         "entities": [
